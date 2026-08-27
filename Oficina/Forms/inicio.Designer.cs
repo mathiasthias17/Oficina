@@ -1,6 +1,6 @@
 ﻿namespace Oficina
 {
-    partial class Form1
+    partial class inicio
     {
         /// <summary>
         /// Variável de designer necessária.
