@@ -92,5 +92,23 @@
   <ItemGroup>
     <None Include="Resources\gear.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oficina.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-user-regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quadro1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quadro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\briefcase-solid.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
