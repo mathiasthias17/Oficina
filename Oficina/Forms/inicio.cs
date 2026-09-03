@@ -75,8 +75,11 @@ namespace Oficina
 
         private void pictureBox3_MouseHover(object sender, EventArgs e)
         {
+
             pictureBox3.BackgroundImage = Oficina.Properties.Resources.quadro1;
             this.label4.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
+
+
     }
 }
