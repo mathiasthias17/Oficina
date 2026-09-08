@@ -52,6 +52,12 @@
     <Compile Include="Forms\inicio.Designer.cs">
       <DependentUpon>inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\SplashScreen.cs">
@@ -62,6 +68,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\inicio.resx">
       <DependentUpon>inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\login.resx">
+      <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,6 +118,78 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\briefcase-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oficina-interiorismo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-lock-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-down-regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-check-regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-down-regular1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-xmark-regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\erro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perfil1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perfil2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aaa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aaa1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saida1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saida2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fornecedores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Finanças.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Peças.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedir_serviço.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funcionarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estoque.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fornecedores1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

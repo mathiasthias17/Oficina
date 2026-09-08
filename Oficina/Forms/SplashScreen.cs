@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oficina.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,9 +42,10 @@ namespace Oficina
             else
             {
                 timer.Stop();
-                inicio form = new inicio();
+                login form = new login();
                 form.Show();
                 this.Hide();
+                
             }
         }
     }
