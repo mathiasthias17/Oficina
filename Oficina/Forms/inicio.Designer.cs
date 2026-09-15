@@ -442,9 +442,10 @@
             this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.LightSalmon;
             this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.LightSalmon;
             this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.LightSalmon;
-            this.dateTimePicker1.Location = new System.Drawing.Point(722, 4);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(918, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(327, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(116, 22);
             this.dateTimePicker1.TabIndex = 0;
             // 
             // pictureBox5

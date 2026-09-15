@@ -19,10 +19,10 @@ namespace Oficina.Forms
             panel1.BackColor = Color.FromArgb(120, 255, 255, 255);
             button1.BackColor = Color.FromArgb(120, 225, 225, 225);
             pictureBox1.BackColor = Color.FromArgb(120, 225, 225, 225);
-            
+
         }
         public int nivel = -1;
-       
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -55,7 +55,7 @@ namespace Oficina.Forms
                 pictureBox2.BackgroundImage = Oficina.Properties.Resources.correto;
                 pictureBox2.Image = Oficina.Properties.Resources.circle_check_regular;
                 pictureBox3.BackgroundImage = Oficina.Properties.Resources.circle_check_regular;
-                nivel= 1;
+                nivel = 1;
             }
             else if (textBox1.Text == "funcionario" && textBox2.Text == "B@lcão08")
             {
@@ -151,7 +151,7 @@ namespace Oficina.Forms
                 inicio inicio = new inicio();
                 inicio.Show();
                 Close();
-                
+
             }
             else if (nivel == 0)
             {
@@ -159,7 +159,7 @@ namespace Oficina.Forms
                 splashScreen.Show();
                 Close();
             }
-            else if(nivel < 0)
+            else if (nivel < 0)
             {
                 MessageBox.Show("logue para obter acesso.");
             }
@@ -217,6 +217,52 @@ namespace Oficina.Forms
                 button1.Visible = pictureBox1.Visible = false;
                 pictureBox2.BackColor = Color.Transparent;
                 textBox1.Enabled = textBox2.Enabled = false;
+            }
+        }
+
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            tabPage1.Show();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            int hoje = Convert.ToInt32(DateTime.Today.Year);
+            hoje = hoje - 18;
+            if (dateTimePicker1.Value.Year > hoje)
+            {
+                MessageBox.Show("Você não tem idade suficiente para acessar o sistema.");
+                dateTimePicker1.Value = DateTime.Today;
+                textBox3.Enabled = textBox4.Enabled = false;
+                radioButton1.Enabled = radioButton2.Enabled = radioButton3.Enabled = false;
+                pictureBox1.Enabled = button1.Enabled = false;
+            }
+            if (dateTimePicker1.Value.Year < hoje)
+            {
+                textBox3.Enabled = textBox4.Enabled = true;
+                radioButton1.Enabled = radioButton2.Enabled = radioButton3.Enabled = true;
+                pictureBox1.Enabled = button1.Enabled = true;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "" || textBox4.Text == "")
+            {
+                MessageBox.Show("Preencha Nome e Senha é obrigatórios.");
+
+            }
+            else
+            {
+                MessageBox.Show("Cadastro realizado com sucesso!");
+                nivel =3;
+                tabPage1.Hide();
             }
         }
     }
