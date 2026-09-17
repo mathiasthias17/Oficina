@@ -19,34 +19,9 @@ namespace Oficina.Forms
             panel1.BackColor = Color.FromArgb(120, 255, 255, 255);
             button1.BackColor = Color.FromArgb(120, 225, 225, 225);
             pictureBox1.BackColor = Color.FromArgb(120, 225, 225, 225);
-
         }
         public int nivel = -1;
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -80,7 +55,7 @@ namespace Oficina.Forms
                 label1.Font = label2.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout | System.Drawing.FontStyle.Italic))));
                 label1.ForeColor = label2.ForeColor = Color.Red;
                 nivel = 0;
-                MessageBox.Show("Invalid usuário ou senha.");
+                MessageBox.Show("Usuário ou senha inválidos.");
             }
             if (pictureBox2.Image == Oficina.Properties.Resources.circle_check_regular)
             {
@@ -95,10 +70,6 @@ namespace Oficina.Forms
                 pictureBox2.BackColor = Color.Transparent;
                 textBox1.Enabled = textBox2.Enabled = false;
             }
-        }
-
-        private void panel1_MouseHover(object sender, EventArgs e)
-        {
         }
 
         private void pictureBox1_MouseHover(object sender, EventArgs e)
@@ -165,12 +136,6 @@ namespace Oficina.Forms
             }
 
         }
-
-        private void login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "admin" && textBox2.Text == "Oficina100")
@@ -218,12 +183,6 @@ namespace Oficina.Forms
                 pictureBox2.BackColor = Color.Transparent;
                 textBox1.Enabled = textBox2.Enabled = false;
             }
-        }
-
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button4_Click(object sender, EventArgs e)
