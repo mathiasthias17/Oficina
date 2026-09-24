@@ -84,6 +84,7 @@ namespace Oficina {
         
         private global::System.Data.DataRelation relationFK_Pecas_Fornecedor;
         
+        private global::System.Data.DataRelation relationFK_Veiculos_Clientes;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -639,6 +640,7 @@ namespace Oficina {
             this.relationFK_OSServicos_OS = this.Relations["FK_OSServicos_OS"];
             this.relationFK_OSServicos_Servico = this.Relations["FK_OSServicos_Servico"];
             this.relationFK_Pecas_Fornecedor = this.Relations["FK_Pecas_Fornecedor"];
+            this.relationFK_Veiculos_Clientes = this.Relations["FK_Veiculos_Clientes"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -733,7 +735,10 @@ namespace Oficina {
                         this.tableFornecedores.ID_FornecedorColumn}, new global::System.Data.DataColumn[] {
                         this.tablePecas.ID_FornecedorColumn}, false);
             this.Relations.Add(this.relationFK_Pecas_Fornecedor);
-
+            this.relationFK_Veiculos_Clientes = new global::System.Data.DataRelation("FK_Veiculos_Clientes", new global::System.Data.DataColumn[] {
+                        this.tableClientes.ID_ClienteColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVeiculos.ID_ClienteColumn}, false);
+            this.Relations.Add(this.relationFK_Veiculos_Clientes);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

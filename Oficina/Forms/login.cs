@@ -220,7 +220,7 @@ namespace Oficina.Forms
             else
             {
                 MessageBox.Show("Cadastro realizado com sucesso!");
-                nivel =3;
+                nivel = 3;
                 tabPage1.Hide();
             }
         }

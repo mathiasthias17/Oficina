@@ -63,6 +63,16 @@ namespace Oficina.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1739923931328 {
+            get {
+                object obj = ResourceManager.GetObject("1739923931328", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap aaa {
             get {
                 object obj = ResourceManager.GetObject("aaa", resourceCulture);
@@ -76,6 +86,26 @@ namespace Oficina.Properties {
         internal static System.Drawing.Bitmap aaa1 {
             get {
                 object obj = ResourceManager.GetObject("aaa1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baixo {
+            get {
+                object obj = ResourceManager.GetObject("baixo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baixo1 {
+            get {
+                object obj = ResourceManager.GetObject("baixo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +403,29 @@ namespace Oficina.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap quadro11 {
+            get {
+                object obj = ResourceManager.GetObject("quadro11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap quadro2 {
             get {
                 object obj = ResourceManager.GetObject("quadro2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quadro3 {
+            get {
+                object obj = ResourceManager.GetObject("quadro3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

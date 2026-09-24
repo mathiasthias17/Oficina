@@ -130,8 +130,8 @@
   <data name="circle-check-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circle-check-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="perfil2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\perfil2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Finanças" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Finanças.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="funcionarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\funcionarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,8 +148,8 @@
   <data name="briefcase-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\briefcase-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="perfil" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\perfil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="baixo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baixo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="circle-user-regular2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circle-user-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,8 +157,14 @@
   <data name="quadro1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\quadro1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user-lock-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-lock-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="perfil2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perfil2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fornecedores1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fornecedores1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="quadro2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quadro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pedir_serviço" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pedir_serviço.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,8 +172,14 @@
   <data name="circle-user-regular1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circle-user-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="quadro11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quadro11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="circle-user-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circle-user-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="perfil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perfil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="aaa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\aaa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,9 +196,6 @@
   <data name="saida2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saida2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Finanças" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Finanças.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="perfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\perfile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,14 +208,20 @@
   <data name="circle-down-regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circle-down-regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="quadro3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quadro2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="oficina" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\oficina.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="oficina-interiorismo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\oficina-interiorismo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="quadro2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\quadro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user-lock-solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-lock-solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="baixo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baixo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="estoque" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\estoque.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,7 +238,7 @@
   <data name="correto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\correto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Fornecedores1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fornecedores1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1739923931328" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1739923931328.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

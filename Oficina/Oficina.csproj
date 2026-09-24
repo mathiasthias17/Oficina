@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dados\MecanicaDB1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MecanicaDB.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +101,7 @@
     <None Include="Dados\MecanicaDB.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>MecanicaDB1.Designer.cs</LastGenOutput>
     </None>
     <None Include="Dados\MecanicaDB.xss">
       <DependentUpon>MecanicaDB.xsd</DependentUpon>
