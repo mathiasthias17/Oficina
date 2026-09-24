@@ -68,6 +68,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.dataGridView11 = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -145,8 +147,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.dataGridView10 = new System.Windows.Forms.DataGridView();
             this.oSServicosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.dataGridView11 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -164,6 +164,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
@@ -205,8 +207,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oSServicosBindingSource)).BeginInit();
-            this.panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
             this.SuspendLayout();
             // 
             // peçasToolStripMenuItem
@@ -214,14 +214,14 @@
             this.peçasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.veículosToolStripMenuItem});
             this.peçasToolStripMenuItem.Name = "peçasToolStripMenuItem";
-            this.peçasToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.peçasToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
             this.peçasToolStripMenuItem.Text = "Clientes";
             this.peçasToolStripMenuItem.Click += new System.EventHandler(this.peçasToolStripMenuItem_Click);
             // 
             // veículosToolStripMenuItem
             // 
             this.veículosToolStripMenuItem.Name = "veículosToolStripMenuItem";
-            this.veículosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.veículosToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.veículosToolStripMenuItem.Text = "Veículos";
             this.veículosToolStripMenuItem.Click += new System.EventHandler(this.veículosToolStripMenuItem_Click);
             // 
@@ -230,7 +230,7 @@
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reposiçãoToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
             this.clientesToolStripMenuItem.Text = "Estoque";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -244,14 +244,14 @@
             // finanaceiroToolStripMenuItem
             // 
             this.finanaceiroToolStripMenuItem.Name = "finanaceiroToolStripMenuItem";
-            this.finanaceiroToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
+            this.finanaceiroToolStripMenuItem.Size = new System.Drawing.Size(91, 26);
             this.finanaceiroToolStripMenuItem.Text = "Financeiro";
             this.finanaceiroToolStripMenuItem.Click += new System.EventHandler(this.finanaceiroToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
@@ -260,7 +260,7 @@
             this.funcionáriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adicionarFuncionarioToolStripMenuItem});
             this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
             this.funcionáriosToolStripMenuItem.Text = "Funcionários";
             this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.funcionáriosToolStripMenuItem_Click);
             // 
@@ -277,7 +277,7 @@
             this.peçasToolStripMenuItem1,
             this.serviçosToolStripMenuItem});
             this.veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
-            this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(146, 24);
+            this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.veiculosToolStripMenuItem.Text = "Ordem de serviços";
             this.veiculosToolStripMenuItem.Click += new System.EventHandler(this.veiculosToolStripMenuItem_Click);
             // 
@@ -311,14 +311,14 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip1.Size = new System.Drawing.Size(1059, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1059, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "Financeiro";
             // 
             // paginaInicialToolStripMenuItem
             // 
             this.paginaInicialToolStripMenuItem.Name = "paginaInicialToolStripMenuItem";
-            this.paginaInicialToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.paginaInicialToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
             this.paginaInicialToolStripMenuItem.Text = "pagina inicial";
             this.paginaInicialToolStripMenuItem.Click += new System.EventHandler(this.paginaInicialToolStripMenuItem_Click);
             // 
@@ -334,10 +334,11 @@
             this.panel1.Controls.Add(this.pictureBox13);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(194, 589);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 10);
+            this.panel1.Size = new System.Drawing.Size(1059, 590);
             this.panel1.TabIndex = 1;
             // 
             // label4
@@ -382,7 +383,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(64, 161);
+            this.label2.Location = new System.Drawing.Point(64, 451);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(226, 44);
             this.label2.TabIndex = 3;
@@ -395,7 +396,7 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImage = global::Oficina.Properties.Resources.quadro3;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(-332, -96);
+            this.pictureBox3.Location = new System.Drawing.Point(717, 194);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(317, 240);
@@ -447,7 +448,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::Oficina.Properties.Resources.quadro3;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(26, -96);
+            this.pictureBox2.Location = new System.Drawing.Point(26, 194);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(288, 240);
@@ -463,7 +464,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Oficina.Properties.Resources.quadro3;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-153, -96);
+            this.pictureBox1.Location = new System.Drawing.Point(371, 194);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(290, 240);
@@ -654,6 +655,26 @@
             this.panel4.Size = new System.Drawing.Size(10, 10);
             this.panel4.TabIndex = 7;
             this.panel4.Visible = false;
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.Transparent;
+            this.panel17.Controls.Add(this.dataGridView11);
+            this.panel17.Location = new System.Drawing.Point(13, 64);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(1034, 507);
+            this.panel17.TabIndex = 2;
+            // 
+            // dataGridView11
+            // 
+            this.dataGridView11.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView11.Location = new System.Drawing.Point(28, 23);
+            this.dataGridView11.Name = "dataGridView11";
+            this.dataGridView11.RowHeadersWidth = 51;
+            this.dataGridView11.RowTemplate.Height = 24;
+            this.dataGridView11.Size = new System.Drawing.Size(954, 462);
+            this.dataGridView11.TabIndex = 0;
             // 
             // panel5
             // 
@@ -1434,10 +1455,10 @@
             this.panel15.BackColor = System.Drawing.Color.Transparent;
             this.panel15.Controls.Add(this.panel16);
             this.panel15.Controls.Add(this.dataGridView10);
-            this.panel15.Location = new System.Drawing.Point(356, 752);
+            this.panel15.Location = new System.Drawing.Point(321, 603);
             this.panel15.Margin = new System.Windows.Forms.Padding(4);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(13, 14);
+            this.panel15.Size = new System.Drawing.Size(10, 13);
             this.panel15.TabIndex = 15;
             this.panel15.Visible = false;
             // 
@@ -1448,10 +1469,10 @@
             this.panel16.Controls.Add(this.numericUpDown8);
             this.panel16.Controls.Add(this.label24);
             this.panel16.Controls.Add(this.label23);
-            this.panel16.Location = new System.Drawing.Point(975, 95);
+            this.panel16.Location = new System.Drawing.Point(711, 110);
             this.panel16.Margin = new System.Windows.Forms.Padding(4);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(391, 378);
+            this.panel16.Size = new System.Drawing.Size(301, 378);
             this.panel16.TabIndex = 1;
             // 
             // button5
@@ -1460,10 +1481,10 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
             this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Location = new System.Drawing.Point(45, 305);
+            this.button5.Location = new System.Drawing.Point(4, 314);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(316, 48);
+            this.button5.Size = new System.Drawing.Size(291, 48);
             this.button5.TabIndex = 3;
             this.button5.Text = "Pedir";
             this.button5.UseVisualStyleBackColor = false;
@@ -1500,7 +1521,7 @@
             this.label23.Location = new System.Drawing.Point(0, 0);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(391, 66);
+            this.label23.Size = new System.Drawing.Size(301, 66);
             this.label23.TabIndex = 0;
             this.label23.Text = "Pedir serviços";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1510,37 +1531,17 @@
             this.dataGridView10.AutoGenerateColumns = false;
             this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView10.DataSource = this.oSServicosBindingSource;
-            this.dataGridView10.Location = new System.Drawing.Point(16, 95);
+            this.dataGridView10.Location = new System.Drawing.Point(13, 44);
             this.dataGridView10.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView10.Name = "dataGridView10";
             this.dataGridView10.RowHeadersWidth = 51;
             this.dataGridView10.RowTemplate.Height = 24;
-            this.dataGridView10.Size = new System.Drawing.Size(904, 585);
+            this.dataGridView10.Size = new System.Drawing.Size(779, 484);
             this.dataGridView10.TabIndex = 0;
             // 
             // oSServicosBindingSource
             // 
             this.oSServicosBindingSource.DataMember = "OS_Servicos";
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.Transparent;
-            this.panel17.Controls.Add(this.dataGridView11);
-            this.panel17.Location = new System.Drawing.Point(13, 64);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(1034, 507);
-            this.panel17.TabIndex = 2;
-            // 
-            // dataGridView11
-            // 
-            this.dataGridView11.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView11.Location = new System.Drawing.Point(28, 23);
-            this.dataGridView11.Name = "dataGridView11";
-            this.dataGridView11.RowHeadersWidth = 51;
-            this.dataGridView11.RowTemplate.Height = 24;
-            this.dataGridView11.Size = new System.Drawing.Size(954, 462);
-            this.dataGridView11.TabIndex = 0;
             // 
             // inicio
             // 
@@ -1595,6 +1596,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
@@ -1640,8 +1643,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oSServicosBindingSource)).EndInit();
-            this.panel17.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

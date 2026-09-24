@@ -33,7 +33,8 @@ namespace Oficina
             label4.BackColor = Color.FromArgb(250, 255, 128, 0);
             this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             button3.BackColor = Color.FromArgb(250, 255, 255, 255);
-
+            pictureBox6.BackColor = Color.FromArgb(120, 10, 10, 10);
+            pictureBox4.BackColor = Color.FromArgb(70, 10, 10, 10);
 
             var loginForm = System.Windows.Forms.Application.OpenForms.OfType<login>().FirstOrDefault();
             if (loginForm != null)
@@ -335,5 +336,7 @@ namespace Oficina
             panel15.Visible = true;
             panel15.Dock = DockStyle.Fill; 
         }
+
+       
     }
 }
