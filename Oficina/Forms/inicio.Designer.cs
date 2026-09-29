@@ -1603,7 +1603,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKVeiculosClientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet31BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);

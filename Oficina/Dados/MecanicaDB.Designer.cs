@@ -5230,26 +5230,6 @@ namespace Oficina {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VeiculosRow AddVeiculosRow(ClientesRow parentClientesRowByFK_Veiculos_Clientes, string Placa, string Marca, string Modelo, int Ano, string Cor) {
-                VeiculosRow rowVeiculosRow = ((VeiculosRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        Placa,
-                        Marca,
-                        Modelo,
-                        Ano,
-                        Cor};
-                if ((parentClientesRowByFK_Veiculos_Clientes != null)) {
-                    columnValuesArray[1] = parentClientesRowByFK_Veiculos_Clientes[0];
-                }
-                rowVeiculosRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowVeiculosRow);
-                return rowVeiculosRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VeiculosRow FindByID_Veiculo(int ID_Veiculo) {
                 return ((VeiculosRow)(this.Rows.Find(new object[] {
                             ID_Veiculo})));
@@ -5261,7 +5241,7 @@ namespace Oficina {
                 VeiculosDataTable cln = ((VeiculosDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
-            }
+            } 
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
