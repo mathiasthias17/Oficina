@@ -10,11 +10,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oficina.Dados.MecanicaDBTableAdapters;
+
 namespace Oficina
 {
     public partial class inicio : Form
     {
 
+        FuncionariosTableAdapter funcionarios = new FuncionariosTableAdapter();
         public inicio()
         {
             InitializeComponent();
@@ -85,7 +88,7 @@ namespace Oficina
         {
             pictureBox2.BackgroundImage = Oficina.Properties.Resources.quadro3;
             pictureBox11.Image = Oficina.Properties.Resources.baixo;
-            label2.BackColor = Color.FromArgb(250,255, 128, 0);
+            label2.BackColor = Color.FromArgb(250, 255, 128, 0);
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 
@@ -133,7 +136,7 @@ namespace Oficina
             this.label4.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 
-      
+
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             if (panel3.Visible == false)
@@ -141,10 +144,11 @@ namespace Oficina
                 esconder();
                 panel3.Visible = true;
                 this.panel3.Location = new System.Drawing.Point(265, 31);
-                pictureBox6.BackColor= pictureBox4.BackColor = Color.FromArgb(0, 0, 0, 0);
+                pictureBox6.BackColor = pictureBox4.BackColor = Color.FromArgb(0, 0, 0, 0);
             }
             else
-            {   esconder();
+            {
+                esconder();
                 this.panel3.Location = new System.Drawing.Point(321, 585);
                 panel3.Visible = false;
                 panel1.Visible = true;
@@ -179,24 +183,24 @@ namespace Oficina
             }
         }
 
-       
+
         public void esconder()
         {
-            panel1.Visible = panel17.Visible = panel4.Visible=panel3.Visible=panel5.Visible=panel2.Visible=panel6.Visible=panel7.Visible = panel8.Visible = panel9.Visible = panel10.Visible = panel11.Visible = panel12.Visible = panel13.Visible = panel15.Visible = false;
+            panel1.Visible = panel17.Visible = panel4.Visible = panel3.Visible = panel5.Visible = panel2.Visible = panel6.Visible = panel7.Visible = panel8.Visible = panel9.Visible = panel10.Visible = panel11.Visible = panel12.Visible = panel13.Visible = panel15.Visible = false;
             panel1.Dock = panel4.Dock = DockStyle.None;
             pictureBox6.BackColor = Color.FromArgb(0, 0, 0, 0);
-            pictureBox4.Visible= pictureBox5.Visible =false;
+            pictureBox4.Visible = pictureBox5.Visible = false;
         }
 
         private void paginaInicialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         esconder();
+            esconder();
             panel1.Visible = true;
-          panel1.Dock = DockStyle.Fill;
-            
+            panel1.Dock = DockStyle.Fill;
+
             pictureBox6.BackColor = Color.FromArgb(120, 10, 10, 10);
             pictureBox4.BackColor = Color.FromArgb(70, 10, 10, 10);
-            pictureBox4.Visible =pictureBox5.Visible= true;
+            pictureBox4.Visible = pictureBox5.Visible = true;
         }
 
         private void peçasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -206,7 +210,7 @@ namespace Oficina
             panel4.Dock = DockStyle.Fill;
             panel5.Visible = true;
 
-          
+
         }
 
         private void veículosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -244,7 +248,7 @@ namespace Oficina
 
         }
 
-        
+
 
         private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -255,7 +259,7 @@ namespace Oficina
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-           dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy HH:mm";
             dateTimePicker2.Value = DateTime.Today;
         }
@@ -277,6 +281,7 @@ namespace Oficina
             esconder();
             panel10.Visible = true;
             panel10.Dock = DockStyle.Fill;
+
         }
 
         private void adicionarFuncionarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -306,7 +311,7 @@ namespace Oficina
 
         private void numericUpDown7_ValueChanged(object sender, EventArgs e)
         {
-            Double valor=0,valor1 ;//preço_unitario
+            Double valor = 0, valor1;//preço_unitario
             valor1 = valor * Convert.ToDouble(numericUpDown7.Value);
             label22.Text = valor.ToString("valor1");
         }
@@ -334,9 +339,55 @@ namespace Oficina
         {
             esconder();
             panel15.Visible = true;
-            panel15.Dock = DockStyle.Fill; 
+            panel15.Dock = DockStyle.Fill;
         }
 
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+            try
+            {
+                DataTable dt = funcionarios.mostrar_funcionarios();
+
+                dataGridView7.AutoGenerateColumns = true;
+                dataGridView7.DataSource = null;
+                dataGridView7.DataSource = dt;
+                dataGridView7.AllowUserToAddRows = false;
+                dataGridView7.RowHeadersVisible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+         decimal valor = 0;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string nome = textBox3.Text, cpf = numericUpDown3.Value.ToString(), telefone = numericUpDown4.Value.ToString(), cargo = textBox4.Text;
+            decimal salario = valor;
+            DateTime data = dateTimePicker2.Value;
+            funcionarios.adicionar_funcionario(nome, cpf, cargo, telefone, salario, data.ToString());
+            panel10.Invalidate();
+        }
        
+        private void textBox5_TextChanged_1(object sender, EventArgs e)
+        {
+            textBox5.TextChanged -= textBox5_TextChanged_1;
+            string numeros = new string(textBox5.Text.Where(char.IsDigit).ToArray());
+
+            if (numeros == "") numeros = "0";
+
+            try
+            {
+                valor = decimal.Parse(numeros) / 100;
+            }
+            catch
+            {
+                MessageBox.Show("Esse valor é muito grande.");
+            }
+
+            textBox5.Text = valor.ToString("C");
+            textBox5.SelectionStart = textBox5.Text.Length;
+            textBox5.TextChanged += textBox5_TextChanged_1;
+        }
     }
 }

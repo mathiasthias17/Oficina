@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dados\MecanicaDB.cs">
+      <DependentUpon>MecanicaDB.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dados\MecanicaDB1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
