@@ -18,6 +18,14 @@ namespace Oficina
     {
 
         FuncionariosTableAdapter funcionarios = new FuncionariosTableAdapter();
+        pecasTableAdapter pecas = new pecasTableAdapter();
+        PecasTableAdapter Pecas = new PecasTableAdapter();
+        Pecas1TableAdapter Pegar_ID = new Pecas1TableAdapter();
+        ClientesTableAdapter clientes = new ClientesTableAdapter();
+        veiculosTableAdapter veiculos = new veiculosTableAdapter();
+        EstoqueTableAdapter estoque = new EstoqueTableAdapter();
+        FornecedoresTableAdapter fornecedores = new FornecedoresTableAdapter();
+        DataTable fornecedor = new DataTable();
         public inicio()
         {
             InitializeComponent();
@@ -210,7 +218,6 @@ namespace Oficina
             panel4.Dock = DockStyle.Fill;
             panel5.Visible = true;
 
-
         }
 
         private void veículosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -253,6 +260,7 @@ namespace Oficina
         private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             esconder();
+            panel20.Visible = false;
             panel9.Visible = true;
             panel9.Dock = DockStyle.Fill;
         }
@@ -311,6 +319,7 @@ namespace Oficina
 
         private void numericUpDown7_ValueChanged(object sender, EventArgs e)
         {
+            int nada;
             Double valor = 0, valor1;//preço_unitario
             valor1 = valor * Convert.ToDouble(numericUpDown7.Value);
             label22.Text = valor.ToString("valor1");
@@ -356,19 +365,19 @@ namespace Oficina
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
-         decimal valor = 0;
+        decimal valor = 0;
         private void button3_Click(object sender, EventArgs e)
         {
-            string nome = textBox3.Text, cpf = numericUpDown3.Value.ToString(), telefone = numericUpDown4.Value.ToString(), cargo = textBox4.Text;
+            string nome = textBox3.Text, cpf = maskedTextBox3.Text, telefone = maskedTextBox4.Text, cargo = textBox4.Text;
             decimal salario = valor;
             DateTime data = dateTimePicker2.Value;
             funcionarios.adicionar_funcionario(nome, cpf, cargo, telefone, salario, data.ToString());
             panel10.Invalidate();
         }
-       
+
         private void textBox5_TextChanged_1(object sender, EventArgs e)
         {
             textBox5.TextChanged -= textBox5_TextChanged_1;
@@ -389,5 +398,154 @@ namespace Oficina
             textBox5.SelectionStart = textBox5.Text.Length;
             textBox5.TextChanged += textBox5_TextChanged_1;
         }
+
+        private void panel17_Paint(object sender, PaintEventArgs e)
+        {
+            dataGridView11.DataSource = veiculos.Mostrar_Veiculos();
+            dataGridView11.Columns[0].Visible = false;
+            dataGridView11.Columns[1].Visible = false;
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+            dataGridView2.DataSource = clientes.Mostrar_Clientes();
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.RowHeadersVisible = false;
+            dataGridView2.Columns[0].Visible = false;
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+            dataGridView4.DataSource = pecas.Mostrar_Pecas();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                panel18.Enabled = true;
+                panel19.Enabled = false;
+            }
+            else
+            {
+                panel18.Enabled = false;
+                panel19.Enabled = true;
+            }
+        }
+
+        private void inicio_Load(object sender, EventArgs e)
+        {
+            radioButton2.Checked = true;
+            fornecedor = fornecedores.Pegar_Fornecedor();
+
+            comboBox1.DataSource = fornecedor;
+            comboBox1.DisplayMember = fornecedor.Columns[1].ColumnName;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                try
+                {
+                    int id_peca = int.Parse(numericUpDown1.Value.ToString());
+                    int quantidade = int.Parse(numericUpDown2.Value.ToString());
+                    DateTime atualizacao = dateTimePicker1.Value;
+                    estoque.Atualizar_Peca(quantidade, atualizacao.ToString(), id_peca);
+                    panel6.Invalidate();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                try
+                {
+                    //Adicionar a peca na tabela Pecas
+                    string nome = textBox6.Text, codigo = textBox10.Text;
+                    decimal valor_compra = decimal.Parse(textBox8.Text), valor_venda = decimal.Parse(textBox9.Text);
+                    int quantidade = int.Parse(numericUpDown9.Value.ToString()), quantidade_minima = int.Parse(numericUpDown10.Value.ToString());
+                    int ID_fornecedor = comboBox1.SelectedIndex + 1;
+                    DateTime atualizacao = dateTimePicker1.Value;
+                    Pecas.Adicionar_Peca(ID_fornecedor, nome, codigo, valor_compra, valor_venda);
+
+                    //Adicionar a peca na tabela Estoque
+
+                    DataTable ID_peca = Pegar_ID.Pegar_ID_Nova(nome);
+                    int id_peca = Convert.ToInt32 (ID_peca.Rows[0]["ID_Peca"]);
+                    estoque.Adicionar_Peca(id_peca, quantidade, quantidade_minima, atualizacao.ToString());
+                    panel6.Invalidate();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+            panel7.Visible = false;
+        }
+
+        private void label33_Click(object sender, EventArgs e)
+        {
+            panel20.Visible = false;
+        }
+
+        private void adicionarFornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel20.Visible = true;
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+            try
+            {
+                dataGridView6.DataSource = fornecedores.Mostrar_Fornecedores();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Nome = textBox7.Text, CNPJ = maskedTextBox2.Text, Telefone = maskedTextBox1.Text, Email = textBox13.Text, Endereco = textBox14.Text;
+                fornecedores.Adicionar_Fornecedor(Nome, CNPJ, Telefone, Email, Endereco);
+                panel9.Invalidate();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void label40_Click(object sender, EventArgs e)
+        {
+            panel11.Visible = false;
+        }
+        //try
+        //    {
+        //        var dados = pecas.Mostrar_Pecas();
+
+        //MessageBox.Show(
+        //            "Linhas: " + dados.Rows.Count +
+        //            "\nColunas: " + dados.Columns.Count
+        //        );
+
+        //        dataGridView11.DataSource = dados;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString());
+        //    }
+        //}
     }
 }
