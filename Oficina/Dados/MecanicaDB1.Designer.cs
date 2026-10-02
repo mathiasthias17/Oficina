@@ -11701,8 +11701,10 @@ namespace Oficina.Dados.MecanicaDBTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Data_Cadastro", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data_Cadastro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Clientes] ([Nome], [CPF], [Telefone], [Email], [Endereco], [Data_Cadastro]) VALUES (@Nome, @CPF, @Telefone, @Email, @Endereco, @Data_Cadastro);
-SELECT ID_Cliente, Nome, CPF, Telefone, Email, Endereco, Data_Cadastro FROM Clientes WHERE (ID_Cliente = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[Clientes] ([Nome], [CPF], [Telefone], [Email], [Endereco], [Data_Cadastro]) VALUES (@Nome, @CPF, @Telefone, @Email, @Endereco, @Data_Cadastro);
+											SELECT ID_Cliente, Nome, CPF, Telefone, Email, Endereco, Data_Cadastro FROM Clientes WHERE (ID_Cliente = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPF", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11712,8 +11714,10 @@ SELECT ID_Cliente, Nome, CPF, Telefone, Email, Endereco, Data_Cadastro FROM Clie
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Data_Cadastro", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data_Cadastro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Clientes] SET [Nome] = @Nome, [CPF] = @CPF, [Telefone] = @Telefone, [Email] = @Email, [Endereco] = @Endereco, [Data_Cadastro] = @Data_Cadastro WHERE (([ID_Cliente] = @Original_ID_Cliente) AND ([Nome] = @Original_Nome) AND ((@IsNull_CPF = 1 AND [CPF] IS NULL) OR ([CPF] = @Original_CPF)) AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Endereco = 1 AND [Endereco] IS NULL) OR ([Endereco] = @Original_Endereco)) AND ([Data_Cadastro] = @Original_Data_Cadastro));
-SELECT ID_Cliente, Nome, CPF, Telefone, Email, Endereco, Data_Cadastro FROM Clientes WHERE (ID_Cliente = @ID_Cliente)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[Clientes] SET [Nome] = @Nome, [CPF] = @CPF, [Telefone] = @Telefone, [Email] = @Email, [Endereco] = @Endereco, [Data_Cadastro] = @Data_Cadastro WHERE (([ID_Cliente] = @Original_ID_Cliente) AND ([Nome] = @Original_Nome) AND ((@IsNull_CPF = 1 AND [CPF] IS NULL) OR ([CPF] = @Original_CPF)) AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Endereco = 1 AND [Endereco] IS NULL) OR ([Endereco] = @Original_Endereco)) AND ([Data_Cadastro] = @Original_Data_Cadastro));
+											SELECT ID_Cliente, Nome, CPF, Telefone, Email, Endereco, Data_Cadastro FROM Clientes WHERE (ID_Cliente = @ID_Cliente)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPF", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12175,8 +12179,10 @@ SELECT ID_Cliente, Nome, CPF, Telefone, Email, Endereco, Data_Cadastro FROM Clie
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ultima_Atualizacao", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ultima_Atualizacao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Estoque] ([ID_Peca], [Quantidade], [Estoque_Minimo], [Ultima_Atualizacao]) VALUES (@ID_Peca, @Quantidade, @Estoque_Minimo, @Ultima_Atualizacao);
-SELECT ID_Estoque, ID_Peca, Quantidade, Estoque_Minimo, Ultima_Atualizacao FROM Estoque WHERE (ID_Estoque = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[Estoque] ([ID_Peca], [Quantidade], [Estoque_Minimo], [Ultima_Atualizacao]) VALUES (@ID_Peca, @Quantidade, @Estoque_Minimo, @Ultima_Atualizacao);
+											SELECT ID_Estoque, ID_Peca, Quantidade, Estoque_Minimo, Ultima_Atualizacao FROM Estoque WHERE (ID_Estoque = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Peca", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Peca", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12184,8 +12190,10 @@ SELECT ID_Estoque, ID_Peca, Quantidade, Estoque_Minimo, Ultima_Atualizacao FROM 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ultima_Atualizacao", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ultima_Atualizacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Estoque] SET [ID_Peca] = @ID_Peca, [Quantidade] = @Quantidade, [Estoque_Minimo] = @Estoque_Minimo, [Ultima_Atualizacao] = @Ultima_Atualizacao WHERE (([ID_Estoque] = @Original_ID_Estoque) AND ([ID_Peca] = @Original_ID_Peca) AND ([Quantidade] = @Original_Quantidade) AND ([Estoque_Minimo] = @Original_Estoque_Minimo) AND ([Ultima_Atualizacao] = @Original_Ultima_Atualizacao));
-SELECT ID_Estoque, ID_Peca, Quantidade, Estoque_Minimo, Ultima_Atualizacao FROM Estoque WHERE (ID_Estoque = @ID_Estoque)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[Estoque] SET [ID_Peca] = @ID_Peca, [Quantidade] = @Quantidade, [Estoque_Minimo] = @Estoque_Minimo, [Ultima_Atualizacao] = @Ultima_Atualizacao WHERE (([ID_Estoque] = @Original_ID_Estoque) AND ([ID_Peca] = @Original_ID_Peca) AND ([Quantidade] = @Original_Quantidade) AND ([Estoque_Minimo] = @Original_Estoque_Minimo) AND ([Ultima_Atualizacao] = @Original_Ultima_Atualizacao));
+											SELECT ID_Estoque, ID_Peca, Quantidade, Estoque_Minimo, Ultima_Atualizacao FROM Estoque WHERE (ID_Estoque = @ID_Estoque)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Peca", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Peca", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantidade", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12227,8 +12235,9 @@ SELECT ID_Estoque, ID_Peca, Quantidade, Estoque_Minimo, Ultima_Atualizacao FROM 
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ultima_Atualizacao", global::System.Data.SqlDbType.DateTime2, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Ultima_Atualizacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "UPDATE [dbo].[Estoque] \nSET [Quantidade] = [Quantidade] + @Quantidade, \n    [Ulti" +
-                "ma_Atualizacao] = @Ultima_Atualizacao \nWHERE [ID_Peca] = @id_peca\n";
+            this._commandCollection[2].CommandText = "\r\n\t\t\t\t\t\t\t\t\t\t\tUPDATE [dbo].[Estoque]\r\n\t\t\t\t\t\t\t\t\t\t\tSET [Quantidade] = [Quantidade] +" +
+                " @Quantidade,\r\n\t\t\t\t\t\t\t\t\t\t\t[Ultima_Atualizacao] = @Ultima_Atualizacao\r\n\t\t\t\t\t\t\t\t\t\t" +
+                "\tWHERE [ID_Peca] = @id_peca\r\n\t\t\t\t\t\t\t\t\t\t";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantidade", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Quantidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ultima_Atualizacao", global::System.Data.SqlDbType.DateTime2, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Ultima_Atualizacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12588,8 +12597,10 @@ SELECT ID_Estoque, ID_Peca, Quantidade, Estoque_Minimo, Ultima_Atualizacao FROM 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status_Pagamento", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status_Pagamento", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Financeiro] ([ID_OS], [Tipo], [Descricao], [Valor], [Data_Movimentacao], [Forma_Pagamento], [Status_Pagamento]) VALUES (@ID_OS, @Tipo, @Descricao, @Valor, @Data_Movimentacao, @Forma_Pagamento, @Status_Pagamento);
-SELECT ID_Financeiro, ID_OS, Tipo, Descricao, Valor, Data_Movimentacao, Forma_Pagamento, Status_Pagamento FROM Financeiro WHERE (ID_Financeiro = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[Financeiro] ([ID_OS], [Tipo], [Descricao], [Valor], [Data_Movimentacao], [Forma_Pagamento], [Status_Pagamento]) VALUES (@ID_OS, @Tipo, @Descricao, @Valor, @Data_Movimentacao, @Forma_Pagamento, @Status_Pagamento);
+											SELECT ID_Financeiro, ID_OS, Tipo, Descricao, Valor, Data_Movimentacao, Forma_Pagamento, Status_Pagamento FROM Financeiro WHERE (ID_Financeiro = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12600,8 +12611,10 @@ SELECT ID_Financeiro, ID_OS, Tipo, Descricao, Valor, Data_Movimentacao, Forma_Pa
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status_Pagamento", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status_Pagamento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Financeiro] SET [ID_OS] = @ID_OS, [Tipo] = @Tipo, [Descricao] = @Descricao, [Valor] = @Valor, [Data_Movimentacao] = @Data_Movimentacao, [Forma_Pagamento] = @Forma_Pagamento, [Status_Pagamento] = @Status_Pagamento WHERE (([ID_Financeiro] = @Original_ID_Financeiro) AND ((@IsNull_ID_OS = 1 AND [ID_OS] IS NULL) OR ([ID_OS] = @Original_ID_OS)) AND ([Tipo] = @Original_Tipo) AND ([Descricao] = @Original_Descricao) AND ([Valor] = @Original_Valor) AND ([Data_Movimentacao] = @Original_Data_Movimentacao) AND ((@IsNull_Forma_Pagamento = 1 AND [Forma_Pagamento] IS NULL) OR ([Forma_Pagamento] = @Original_Forma_Pagamento)) AND ([Status_Pagamento] = @Original_Status_Pagamento));
-SELECT ID_Financeiro, ID_OS, Tipo, Descricao, Valor, Data_Movimentacao, Forma_Pagamento, Status_Pagamento FROM Financeiro WHERE (ID_Financeiro = @ID_Financeiro)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[Financeiro] SET [ID_OS] = @ID_OS, [Tipo] = @Tipo, [Descricao] = @Descricao, [Valor] = @Valor, [Data_Movimentacao] = @Data_Movimentacao, [Forma_Pagamento] = @Forma_Pagamento, [Status_Pagamento] = @Status_Pagamento WHERE (([ID_Financeiro] = @Original_ID_Financeiro) AND ((@IsNull_ID_OS = 1 AND [ID_OS] IS NULL) OR ([ID_OS] = @Original_ID_OS)) AND ([Tipo] = @Original_Tipo) AND ([Descricao] = @Original_Descricao) AND ([Valor] = @Original_Valor) AND ([Data_Movimentacao] = @Original_Data_Movimentacao) AND ((@IsNull_Forma_Pagamento = 1 AND [Forma_Pagamento] IS NULL) OR ([Forma_Pagamento] = @Original_Forma_Pagamento)) AND ([Status_Pagamento] = @Original_Status_Pagamento));
+											SELECT ID_Financeiro, ID_OS, Tipo, Descricao, Valor, Data_Movimentacao, Forma_Pagamento, Status_Pagamento FROM Financeiro WHERE (ID_Financeiro = @ID_Financeiro)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13065,10 +13078,10 @@ SELECT ID_Financeiro, ID_OS, Tipo, Descricao, Valor, Data_Movimentacao, Forma_Pa
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Endereco", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Endereco", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Fornecedores] ([Nome], [CNPJ], [Telefone], [Email], [Endereco]" +
-                ") VALUES (@Nome, @CNPJ, @Telefone, @Email, @Endereco);\r\nSELECT ID_Fornecedor, No" +
-                "me, CNPJ, Telefone, Email, Endereco FROM Fornecedores WHERE (ID_Fornecedor = SCO" +
-                "PE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[Fornecedores] ([Nome], [CNPJ], [Telefone], [Email], [Endereco]) VALUES (@Nome, @CNPJ, @Telefone, @Email, @Endereco);
+											SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WHERE (ID_Fornecedor = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CNPJ", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CNPJ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13077,8 +13090,10 @@ SELECT ID_Financeiro, ID_OS, Tipo, Descricao, Valor, Data_Movimentacao, Forma_Pa
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Endereco", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Endereco", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Fornecedores] SET [Nome] = @Nome, [CNPJ] = @CNPJ, [Telefone] = @Telefone, [Email] = @Email, [Endereco] = @Endereco WHERE (([ID_Fornecedor] = @Original_ID_Fornecedor) AND ([Nome] = @Original_Nome) AND ((@IsNull_CNPJ = 1 AND [CNPJ] IS NULL) OR ([CNPJ] = @Original_CNPJ)) AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Endereco = 1 AND [Endereco] IS NULL) OR ([Endereco] = @Original_Endereco)));
-SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WHERE (ID_Fornecedor = @ID_Fornecedor)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[Fornecedores] SET [Nome] = @Nome, [CNPJ] = @CNPJ, [Telefone] = @Telefone, [Email] = @Email, [Endereco] = @Endereco WHERE (([ID_Fornecedor] = @Original_ID_Fornecedor) AND ([Nome] = @Original_Nome) AND ((@IsNull_CNPJ = 1 AND [CNPJ] IS NULL) OR ([CNPJ] = @Original_CNPJ)) AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_Endereco = 1 AND [Endereco] IS NULL) OR ([Endereco] = @Original_Endereco)));
+											SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WHERE (ID_Fornecedor = @ID_Fornecedor)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CNPJ", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CNPJ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13620,8 +13635,10 @@ SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WH
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Data_Admissao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data_Admissao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Funcionarios] ([Nome], [CPF], [Cargo], [Telefone], [Salario], [Data_Admissao]) VALUES (@Nome, @CPF, @Cargo, @Telefone, @Salario, @Data_Admissao);
-SELECT ID_Funcionario, Nome, CPF, Cargo, Telefone, Salario, Data_Admissao FROM Funcionarios WHERE (ID_Funcionario = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[Funcionarios] ([Nome], [CPF], [Cargo], [Telefone], [Salario], [Data_Admissao]) VALUES (@Nome, @CPF, @Cargo, @Telefone, @Salario, @Data_Admissao);
+											SELECT ID_Funcionario, Nome, CPF, Cargo, Telefone, Salario, Data_Admissao FROM Funcionarios WHERE (ID_Funcionario = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPF", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13631,8 +13648,10 @@ SELECT ID_Funcionario, Nome, CPF, Cargo, Telefone, Salario, Data_Admissao FROM F
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Data_Admissao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data_Admissao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Funcionarios] SET [Nome] = @Nome, [CPF] = @CPF, [Cargo] = @Cargo, [Telefone] = @Telefone, [Salario] = @Salario, [Data_Admissao] = @Data_Admissao WHERE (([ID_Funcionario] = @Original_ID_Funcionario) AND ([Nome] = @Original_Nome) AND ((@IsNull_CPF = 1 AND [CPF] IS NULL) OR ([CPF] = @Original_CPF)) AND ([Cargo] = @Original_Cargo) AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_Salario = 1 AND [Salario] IS NULL) OR ([Salario] = @Original_Salario)) AND ((@IsNull_Data_Admissao = 1 AND [Data_Admissao] IS NULL) OR ([Data_Admissao] = @Original_Data_Admissao)));
-SELECT ID_Funcionario, Nome, CPF, Cargo, Telefone, Salario, Data_Admissao FROM Funcionarios WHERE (ID_Funcionario = @ID_Funcionario)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[Funcionarios] SET [Nome] = @Nome, [CPF] = @CPF, [Cargo] = @Cargo, [Telefone] = @Telefone, [Salario] = @Salario, [Data_Admissao] = @Data_Admissao WHERE (([ID_Funcionario] = @Original_ID_Funcionario) AND ([Nome] = @Original_Nome) AND ((@IsNull_CPF = 1 AND [CPF] IS NULL) OR ([CPF] = @Original_CPF)) AND ([Cargo] = @Original_Cargo) AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)) AND ((@IsNull_Salario = 1 AND [Salario] IS NULL) OR ([Salario] = @Original_Salario)) AND ((@IsNull_Data_Admissao = 1 AND [Data_Admissao] IS NULL) OR ([Data_Admissao] = @Original_Data_Admissao)));
+											SELECT ID_Funcionario, Nome, CPF, Cargo, Telefone, Salario, Data_Admissao FROM Funcionarios WHERE (ID_Funcionario = @ID_Funcionario)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CPF", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CPF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14189,8 +14208,10 @@ SELECT ID_Funcionario, Nome, CPF, Cargo, Telefone, Salario, Data_Admissao FROM F
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Data_Alteracao", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data_Alteracao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[HistoricoOS] ([ID_OS], [Status_Anterior], [Status_Novo], [Observacao], [Data_Alteracao]) VALUES (@ID_OS, @Status_Anterior, @Status_Novo, @Observacao, @Data_Alteracao);
-SELECT ID_Historico, ID_OS, Status_Anterior, Status_Novo, Observacao, Data_Alteracao FROM HistoricoOS WHERE (ID_Historico = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[HistoricoOS] ([ID_OS], [Status_Anterior], [Status_Novo], [Observacao], [Data_Alteracao]) VALUES (@ID_OS, @Status_Anterior, @Status_Novo, @Observacao, @Data_Alteracao);
+											SELECT ID_Historico, ID_OS, Status_Anterior, Status_Novo, Observacao, Data_Alteracao FROM HistoricoOS WHERE (ID_Historico = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status_Anterior", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status_Anterior", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14199,8 +14220,10 @@ SELECT ID_Historico, ID_OS, Status_Anterior, Status_Novo, Observacao, Data_Alter
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Data_Alteracao", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data_Alteracao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[HistoricoOS] SET [ID_OS] = @ID_OS, [Status_Anterior] = @Status_Anterior, [Status_Novo] = @Status_Novo, [Observacao] = @Observacao, [Data_Alteracao] = @Data_Alteracao WHERE (([ID_Historico] = @Original_ID_Historico) AND ([ID_OS] = @Original_ID_OS) AND ((@IsNull_Status_Anterior = 1 AND [Status_Anterior] IS NULL) OR ([Status_Anterior] = @Original_Status_Anterior)) AND ([Status_Novo] = @Original_Status_Novo) AND ((@IsNull_Observacao = 1 AND [Observacao] IS NULL) OR ([Observacao] = @Original_Observacao)) AND ([Data_Alteracao] = @Original_Data_Alteracao));
-SELECT ID_Historico, ID_OS, Status_Anterior, Status_Novo, Observacao, Data_Alteracao FROM HistoricoOS WHERE (ID_Historico = @ID_Historico)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[HistoricoOS] SET [ID_OS] = @ID_OS, [Status_Anterior] = @Status_Anterior, [Status_Novo] = @Status_Novo, [Observacao] = @Observacao, [Data_Alteracao] = @Data_Alteracao WHERE (([ID_Historico] = @Original_ID_Historico) AND ([ID_OS] = @Original_ID_OS) AND ((@IsNull_Status_Anterior = 1 AND [Status_Anterior] IS NULL) OR ([Status_Anterior] = @Original_Status_Anterior)) AND ([Status_Novo] = @Original_Status_Novo) AND ((@IsNull_Observacao = 1 AND [Observacao] IS NULL) OR ([Observacao] = @Original_Observacao)) AND ([Data_Alteracao] = @Original_Data_Alteracao));
+											SELECT ID_Historico, ID_OS, Status_Anterior, Status_Novo, Observacao, Data_Alteracao FROM HistoricoOS WHERE (ID_Historico = @ID_Historico)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status_Anterior", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status_Anterior", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14596,8 +14619,10 @@ SELECT ID_Historico, ID_OS, Status_Anterior, Status_Novo, Observacao, Data_Alter
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Data_Movimentacao", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data_Movimentacao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[MovimentacoesEstoque] ([ID_Peca], [ID_OS], [Tipo], [Quantidade], [Motivo], [Data_Movimentacao]) VALUES (@ID_Peca, @ID_OS, @Tipo, @Quantidade, @Motivo, @Data_Movimentacao);
-SELECT ID_Movimentacao, ID_Peca, ID_OS, Tipo, Quantidade, Motivo, Data_Movimentacao FROM MovimentacoesEstoque WHERE (ID_Movimentacao = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[MovimentacoesEstoque] ([ID_Peca], [ID_OS], [Tipo], [Quantidade], [Motivo], [Data_Movimentacao]) VALUES (@ID_Peca, @ID_OS, @Tipo, @Quantidade, @Motivo, @Data_Movimentacao);
+											SELECT ID_Movimentacao, ID_Peca, ID_OS, Tipo, Quantidade, Motivo, Data_Movimentacao FROM MovimentacoesEstoque WHERE (ID_Movimentacao = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Peca", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Peca", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14607,8 +14632,10 @@ SELECT ID_Movimentacao, ID_Peca, ID_OS, Tipo, Quantidade, Motivo, Data_Movimenta
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Data_Movimentacao", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Data_Movimentacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[MovimentacoesEstoque] SET [ID_Peca] = @ID_Peca, [ID_OS] = @ID_OS, [Tipo] = @Tipo, [Quantidade] = @Quantidade, [Motivo] = @Motivo, [Data_Movimentacao] = @Data_Movimentacao WHERE (([ID_Movimentacao] = @Original_ID_Movimentacao) AND ([ID_Peca] = @Original_ID_Peca) AND ((@IsNull_ID_OS = 1 AND [ID_OS] IS NULL) OR ([ID_OS] = @Original_ID_OS)) AND ([Tipo] = @Original_Tipo) AND ([Quantidade] = @Original_Quantidade) AND ((@IsNull_Motivo = 1 AND [Motivo] IS NULL) OR ([Motivo] = @Original_Motivo)) AND ([Data_Movimentacao] = @Original_Data_Movimentacao));
-SELECT ID_Movimentacao, ID_Peca, ID_OS, Tipo, Quantidade, Motivo, Data_Movimentacao FROM MovimentacoesEstoque WHERE (ID_Movimentacao = @ID_Movimentacao)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[MovimentacoesEstoque] SET [ID_Peca] = @ID_Peca, [ID_OS] = @ID_OS, [Tipo] = @Tipo, [Quantidade] = @Quantidade, [Motivo] = @Motivo, [Data_Movimentacao] = @Data_Movimentacao WHERE (([ID_Movimentacao] = @Original_ID_Movimentacao) AND ([ID_Peca] = @Original_ID_Peca) AND ((@IsNull_ID_OS = 1 AND [ID_OS] IS NULL) OR ([ID_OS] = @Original_ID_OS)) AND ([Tipo] = @Original_Tipo) AND ([Quantidade] = @Original_Quantidade) AND ((@IsNull_Motivo = 1 AND [Motivo] IS NULL) OR ([Motivo] = @Original_Motivo)) AND ([Data_Movimentacao] = @Original_Data_Movimentacao));
+											SELECT ID_Movimentacao, ID_Peca, ID_OS, Tipo, Quantidade, Motivo, Data_Movimentacao FROM MovimentacoesEstoque WHERE (ID_Movimentacao = @ID_Movimentacao)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Peca", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Peca", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15014,8 +15041,10 @@ SELECT ID_Movimentacao, ID_Peca, ID_OS, Tipo, Quantidade, Motivo, Data_Movimenta
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Observacoes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Observacoes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[OrdensServico] ([ID_Veiculo], [ID_Funcionario], [Data_Abertura], [Data_Fechamento], [Status_OS], [Problema_Relatado], [Observacoes]) VALUES (@ID_Veiculo, @ID_Funcionario, @Data_Abertura, @Data_Fechamento, @Status_OS, @Problema_Relatado, @Observacoes);
-SELECT ID_OS, ID_Veiculo, ID_Funcionario, Data_Abertura, Data_Fechamento, Status_OS, Problema_Relatado, Observacoes FROM OrdensServico WHERE (ID_OS = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[OrdensServico] ([ID_Veiculo], [ID_Funcionario], [Data_Abertura], [Data_Fechamento], [Status_OS], [Problema_Relatado], [Observacoes]) VALUES (@ID_Veiculo, @ID_Funcionario, @Data_Abertura, @Data_Fechamento, @Status_OS, @Problema_Relatado, @Observacoes);
+											SELECT ID_OS, ID_Veiculo, ID_Funcionario, Data_Abertura, Data_Fechamento, Status_OS, Problema_Relatado, Observacoes FROM OrdensServico WHERE (ID_OS = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Veiculo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Veiculo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Funcionario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Funcionario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15026,8 +15055,10 @@ SELECT ID_OS, ID_Veiculo, ID_Funcionario, Data_Abertura, Data_Fechamento, Status
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Observacoes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Observacoes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[OrdensServico] SET [ID_Veiculo] = @ID_Veiculo, [ID_Funcionario] = @ID_Funcionario, [Data_Abertura] = @Data_Abertura, [Data_Fechamento] = @Data_Fechamento, [Status_OS] = @Status_OS, [Problema_Relatado] = @Problema_Relatado, [Observacoes] = @Observacoes WHERE (([ID_OS] = @Original_ID_OS) AND ([ID_Veiculo] = @Original_ID_Veiculo) AND ((@IsNull_ID_Funcionario = 1 AND [ID_Funcionario] IS NULL) OR ([ID_Funcionario] = @Original_ID_Funcionario)) AND ([Data_Abertura] = @Original_Data_Abertura) AND ((@IsNull_Data_Fechamento = 1 AND [Data_Fechamento] IS NULL) OR ([Data_Fechamento] = @Original_Data_Fechamento)) AND ([Status_OS] = @Original_Status_OS) AND ((@IsNull_Problema_Relatado = 1 AND [Problema_Relatado] IS NULL) OR ([Problema_Relatado] = @Original_Problema_Relatado)) AND ((@IsNull_Observacoes = 1 AND [Observacoes] IS NULL) OR ([Observacoes] = @Original_Observacoes)));
-SELECT ID_OS, ID_Veiculo, ID_Funcionario, Data_Abertura, Data_Fechamento, Status_OS, Problema_Relatado, Observacoes FROM OrdensServico WHERE (ID_OS = @ID_OS)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[OrdensServico] SET [ID_Veiculo] = @ID_Veiculo, [ID_Funcionario] = @ID_Funcionario, [Data_Abertura] = @Data_Abertura, [Data_Fechamento] = @Data_Fechamento, [Status_OS] = @Status_OS, [Problema_Relatado] = @Problema_Relatado, [Observacoes] = @Observacoes WHERE (([ID_OS] = @Original_ID_OS) AND ([ID_Veiculo] = @Original_ID_Veiculo) AND ((@IsNull_ID_Funcionario = 1 AND [ID_Funcionario] IS NULL) OR ([ID_Funcionario] = @Original_ID_Funcionario)) AND ([Data_Abertura] = @Original_Data_Abertura) AND ((@IsNull_Data_Fechamento = 1 AND [Data_Fechamento] IS NULL) OR ([Data_Fechamento] = @Original_Data_Fechamento)) AND ([Status_OS] = @Original_Status_OS) AND ((@IsNull_Problema_Relatado = 1 AND [Problema_Relatado] IS NULL) OR ([Problema_Relatado] = @Original_Problema_Relatado)) AND ((@IsNull_Observacoes = 1 AND [Observacoes] IS NULL) OR ([Observacoes] = @Original_Observacoes)));
+											SELECT ID_OS, ID_Veiculo, ID_Funcionario, Data_Abertura, Data_Fechamento, Status_OS, Problema_Relatado, Observacoes FROM OrdensServico WHERE (ID_OS = @ID_OS)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Veiculo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Veiculo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Funcionario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Funcionario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15497,10 +15528,10 @@ SELECT ID_OS, ID_Veiculo, ID_Funcionario, Data_Abertura, Data_Fechamento, Status
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Preco_Unitario", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Preco_Unitario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[OS_Pecas] ([ID_OS], [ID_Peca], [Quantidade], [Preco_Unitario])" +
-                " VALUES (@ID_OS, @ID_Peca, @Quantidade, @Preco_Unitario);\r\nSELECT ID_OS_Peca, ID" +
-                "_OS, ID_Peca, Quantidade, Preco_Unitario FROM OS_Pecas WHERE (ID_OS_Peca = SCOPE" +
-                "_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[OS_Pecas] ([ID_OS], [ID_Peca], [Quantidade], [Preco_Unitario]) VALUES (@ID_OS, @ID_Peca, @Quantidade, @Preco_Unitario);
+											SELECT ID_OS_Peca, ID_OS, ID_Peca, Quantidade, Preco_Unitario FROM OS_Pecas WHERE (ID_OS_Peca = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Peca", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Peca", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15508,8 +15539,10 @@ SELECT ID_OS, ID_Veiculo, ID_Funcionario, Data_Abertura, Data_Fechamento, Status
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Preco_Unitario", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Preco_Unitario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[OS_Pecas] SET [ID_OS] = @ID_OS, [ID_Peca] = @ID_Peca, [Quantidade] = @Quantidade, [Preco_Unitario] = @Preco_Unitario WHERE (([ID_OS_Peca] = @Original_ID_OS_Peca) AND ([ID_OS] = @Original_ID_OS) AND ([ID_Peca] = @Original_ID_Peca) AND ([Quantidade] = @Original_Quantidade) AND ([Preco_Unitario] = @Original_Preco_Unitario));
-SELECT ID_OS_Peca, ID_OS, ID_Peca, Quantidade, Preco_Unitario FROM OS_Pecas WHERE (ID_OS_Peca = @ID_OS_Peca)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[OS_Pecas] SET [ID_OS] = @ID_OS, [ID_Peca] = @ID_Peca, [Quantidade] = @Quantidade, [Preco_Unitario] = @Preco_Unitario WHERE (([ID_OS_Peca] = @Original_ID_OS_Peca) AND ([ID_OS] = @Original_ID_OS) AND ([ID_Peca] = @Original_ID_Peca) AND ([Quantidade] = @Original_Quantidade) AND ([Preco_Unitario] = @Original_Preco_Unitario));
+											SELECT ID_OS_Peca, ID_OS, ID_Peca, Quantidade, Preco_Unitario FROM OS_Pecas WHERE (ID_OS_Peca = @ID_OS_Peca)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Peca", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Peca", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15825,8 +15858,10 @@ SELECT ID_OS_Peca, ID_OS, ID_Peca, Quantidade, Preco_Unitario FROM OS_Pecas WHER
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Preco_Unitario", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Preco_Unitario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[OS_Servicos] ([ID_OS], [ID_Servico], [Quantidade], [Preco_Unitario]) VALUES (@ID_OS, @ID_Servico, @Quantidade, @Preco_Unitario);
-SELECT ID_OS_Servico, ID_OS, ID_Servico, Quantidade, Preco_Unitario FROM OS_Servicos WHERE (ID_OS_Servico = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[OS_Servicos] ([ID_OS], [ID_Servico], [Quantidade], [Preco_Unitario]) VALUES (@ID_OS, @ID_Servico, @Quantidade, @Preco_Unitario);
+											SELECT ID_OS_Servico, ID_OS, ID_Servico, Quantidade, Preco_Unitario FROM OS_Servicos WHERE (ID_OS_Servico = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Servico", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Servico", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15834,8 +15869,10 @@ SELECT ID_OS_Servico, ID_OS, ID_Servico, Quantidade, Preco_Unitario FROM OS_Serv
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Preco_Unitario", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Preco_Unitario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[OS_Servicos] SET [ID_OS] = @ID_OS, [ID_Servico] = @ID_Servico, [Quantidade] = @Quantidade, [Preco_Unitario] = @Preco_Unitario WHERE (([ID_OS_Servico] = @Original_ID_OS_Servico) AND ([ID_OS] = @Original_ID_OS) AND ([ID_Servico] = @Original_ID_Servico) AND ([Quantidade] = @Original_Quantidade) AND ([Preco_Unitario] = @Original_Preco_Unitario));
-SELECT ID_OS_Servico, ID_OS, ID_Servico, Quantidade, Preco_Unitario FROM OS_Servicos WHERE (ID_OS_Servico = @ID_OS_Servico)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[OS_Servicos] SET [ID_OS] = @ID_OS, [ID_Servico] = @ID_Servico, [Quantidade] = @Quantidade, [Preco_Unitario] = @Preco_Unitario WHERE (([ID_OS_Servico] = @Original_ID_OS_Servico) AND ([ID_OS] = @Original_ID_OS) AND ([ID_Servico] = @Original_ID_Servico) AND ([Quantidade] = @Original_Quantidade) AND ([Preco_Unitario] = @Original_Preco_Unitario));
+											SELECT ID_OS_Servico, ID_OS, ID_Servico, Quantidade, Preco_Unitario FROM OS_Servicos WHERE (ID_OS_Servico = @ID_OS_Servico)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Servico", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Servico", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -16152,8 +16189,10 @@ SELECT ID_OS_Servico, ID_OS, ID_Servico, Quantidade, Preco_Unitario FROM OS_Serv
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Preco_Venda", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Preco_Venda", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Pecas] ([ID_Fornecedor], [Nome], [Codigo], [Preco_Custo], [Preco_Venda]) VALUES (@ID_Fornecedor, @Nome, @Codigo, @Preco_Custo, @Preco_Venda);
-SELECT ID_Peca, ID_Fornecedor, Nome, Codigo, Preco_Custo, Preco_Venda FROM Pecas WHERE (ID_Peca = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[Pecas] ([ID_Fornecedor], [Nome], [Codigo], [Preco_Custo], [Preco_Venda]) VALUES (@ID_Fornecedor, @Nome, @Codigo, @Preco_Custo, @Preco_Venda);
+											SELECT ID_Peca, ID_Fornecedor, Nome, Codigo, Preco_Custo, Preco_Venda FROM Pecas WHERE (ID_Peca = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Fornecedor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Fornecedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -16162,8 +16201,10 @@ SELECT ID_Peca, ID_Fornecedor, Nome, Codigo, Preco_Custo, Preco_Venda FROM Pecas
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Preco_Venda", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Preco_Venda", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Pecas] SET [ID_Fornecedor] = @ID_Fornecedor, [Nome] = @Nome, [Codigo] = @Codigo, [Preco_Custo] = @Preco_Custo, [Preco_Venda] = @Preco_Venda WHERE (([ID_Peca] = @Original_ID_Peca) AND ((@IsNull_ID_Fornecedor = 1 AND [ID_Fornecedor] IS NULL) OR ([ID_Fornecedor] = @Original_ID_Fornecedor)) AND ([Nome] = @Original_Nome) AND ([Codigo] = @Original_Codigo) AND ([Preco_Custo] = @Original_Preco_Custo) AND ([Preco_Venda] = @Original_Preco_Venda));
-SELECT ID_Peca, ID_Fornecedor, Nome, Codigo, Preco_Custo, Preco_Venda FROM Pecas WHERE (ID_Peca = @ID_Peca)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[Pecas] SET [ID_Fornecedor] = @ID_Fornecedor, [Nome] = @Nome, [Codigo] = @Codigo, [Preco_Custo] = @Preco_Custo, [Preco_Venda] = @Preco_Venda WHERE (([ID_Peca] = @Original_ID_Peca) AND ((@IsNull_ID_Fornecedor = 1 AND [ID_Fornecedor] IS NULL) OR ([ID_Fornecedor] = @Original_ID_Fornecedor)) AND ([Nome] = @Original_Nome) AND ([Codigo] = @Original_Codigo) AND ([Preco_Custo] = @Original_Preco_Custo) AND ([Preco_Venda] = @Original_Preco_Venda));
+											SELECT ID_Peca, ID_Fornecedor, Nome, Codigo, Preco_Custo, Preco_Venda FROM Pecas WHERE (ID_Peca = @ID_Peca)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Fornecedor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Fornecedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -16603,10 +16644,10 @@ SELECT ID_Peca, ID_Fornecedor, Nome, Codigo, Preco_Custo, Preco_Venda FROM Pecas
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tempo_Estimado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tempo_Estimado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Servicos] ([Nome], [Descricao], [Preco], [Tempo_Estimado]) VAL" +
-                "UES (@Nome, @Descricao, @Preco, @Tempo_Estimado);\r\nSELECT ID_Servico, Nome, Desc" +
-                "ricao, Preco, Tempo_Estimado FROM Servicos WHERE (ID_Servico = SCOPE_IDENTITY())" +
-                "";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[Servicos] ([Nome], [Descricao], [Preco], [Tempo_Estimado]) VALUES (@Nome, @Descricao, @Preco, @Tempo_Estimado);
+											SELECT ID_Servico, Nome, Descricao, Preco, Tempo_Estimado FROM Servicos WHERE (ID_Servico = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descricao", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descricao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -16614,8 +16655,10 @@ SELECT ID_Peca, ID_Fornecedor, Nome, Codigo, Preco_Custo, Preco_Venda FROM Pecas
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tempo_Estimado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tempo_Estimado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Servicos] SET [Nome] = @Nome, [Descricao] = @Descricao, [Preco] = @Preco, [Tempo_Estimado] = @Tempo_Estimado WHERE (([ID_Servico] = @Original_ID_Servico) AND ([Nome] = @Original_Nome) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)) AND ([Preco] = @Original_Preco) AND ((@IsNull_Tempo_Estimado = 1 AND [Tempo_Estimado] IS NULL) OR ([Tempo_Estimado] = @Original_Tempo_Estimado)));
-SELECT ID_Servico, Nome, Descricao, Preco, Tempo_Estimado FROM Servicos WHERE (ID_Servico = @ID_Servico)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[Servicos] SET [Nome] = @Nome, [Descricao] = @Descricao, [Preco] = @Preco, [Tempo_Estimado] = @Tempo_Estimado WHERE (([ID_Servico] = @Original_ID_Servico) AND ([Nome] = @Original_Nome) AND ((@IsNull_Descricao = 1 AND [Descricao] IS NULL) OR ([Descricao] = @Original_Descricao)) AND ([Preco] = @Original_Preco) AND ((@IsNull_Tempo_Estimado = 1 AND [Tempo_Estimado] IS NULL) OR ([Tempo_Estimado] = @Original_Tempo_Estimado)));
+											SELECT ID_Servico, Nome, Descricao, Preco, Tempo_Estimado FROM Servicos WHERE (ID_Servico = @ID_Servico)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descricao", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descricao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17004,8 +17047,10 @@ SELECT ID_Servico, Nome, Descricao, Preco, Tempo_Estimado FROM Servicos WHERE (I
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Veiculos] ([ID_Cliente], [Placa], [Marca], [Modelo], [Ano], [Cor]) VALUES (@ID_Cliente, @Placa, @Marca, @Modelo, @Ano, @Cor);
-SELECT ID_Veiculo, ID_Cliente, Placa, Marca, Modelo, Ano, Cor FROM Veiculos WHERE (ID_Veiculo = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"
+											INSERT INTO [dbo].[Veiculos] ([ID_Cliente], [Placa], [Marca], [Modelo], [Ano], [Cor]) VALUES (@ID_Cliente, @Placa, @Marca, @Modelo, @Ano, @Cor);
+											SELECT ID_Veiculo, ID_Cliente, Placa, Marca, Modelo, Ano, Cor FROM Veiculos WHERE (ID_Veiculo = SCOPE_IDENTITY())
+										";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Placa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Placa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17015,8 +17060,10 @@ SELECT ID_Veiculo, ID_Cliente, Placa, Marca, Modelo, Ano, Cor FROM Veiculos WHER
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Veiculos] SET [ID_Cliente] = @ID_Cliente, [Placa] = @Placa, [Marca] = @Marca, [Modelo] = @Modelo, [Ano] = @Ano, [Cor] = @Cor WHERE (([ID_Veiculo] = @Original_ID_Veiculo) AND ([ID_Cliente] = @Original_ID_Cliente) AND ([Placa] = @Original_Placa) AND ([Marca] = @Original_Marca) AND ([Modelo] = @Original_Modelo) AND ((@IsNull_Ano = 1 AND [Ano] IS NULL) OR ([Ano] = @Original_Ano)) AND ((@IsNull_Cor = 1 AND [Cor] IS NULL) OR ([Cor] = @Original_Cor)));
-SELECT ID_Veiculo, ID_Cliente, Placa, Marca, Modelo, Ano, Cor FROM Veiculos WHERE (ID_Veiculo = @ID_Veiculo)";
+            this._adapter.UpdateCommand.CommandText = @"
+											UPDATE [dbo].[Veiculos] SET [ID_Cliente] = @ID_Cliente, [Placa] = @Placa, [Marca] = @Marca, [Modelo] = @Modelo, [Ano] = @Ano, [Cor] = @Cor WHERE (([ID_Veiculo] = @Original_ID_Veiculo) AND ([ID_Cliente] = @Original_ID_Cliente) AND ([Placa] = @Original_Placa) AND ([Marca] = @Original_Marca) AND ([Modelo] = @Original_Modelo) AND ((@IsNull_Ano = 1 AND [Ano] IS NULL) OR ([Ano] = @Original_Ano)) AND ((@IsNull_Cor = 1 AND [Cor] IS NULL) OR ([Cor] = @Original_Cor)));
+											SELECT ID_Veiculo, ID_Cliente, Placa, Marca, Modelo, Ano, Cor FROM Veiculos WHERE (ID_Veiculo = @ID_Veiculo)
+										";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Placa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Placa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -18433,9 +18480,11 @@ SELECT ID_Veiculo, ID_Cliente, Placa, Marca, Modelo, Ano, Cor FROM Veiculos WHER
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Pecas.ID_Peca, Pecas.ID_Fornecedor, Pecas.Nome, Pecas.Codigo, Pecas" +
-                ".Preco_Custo, Pecas.Preco_Venda, Estoque.Quantidade\r\nFROM            Pecas LEFT " +
-                "JOIN\r\n                         Estoque ON Pecas.ID_Peca = Estoque.ID_Peca";
+            this._commandCollection[0].CommandText = @"
+											SELECT        Pecas.ID_Peca, Pecas.ID_Fornecedor, Pecas.Nome, Pecas.Codigo, Pecas.Preco_Custo, Pecas.Preco_Venda, Estoque.Quantidade
+											FROM            Pecas LEFT JOIN
+											Estoque ON Pecas.ID_Peca = Estoque.ID_Peca
+										";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18752,7 +18801,8 @@ SELECT ID_Veiculo, ID_Cliente, Placa, Marca, Modelo, Ano, Cor FROM Veiculos WHER
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT dbo.Pecas.ID_Peca\r\nFROM dbo.Pecas\r\nWHERE dbo.Pecas.Nome = @Nome";
+            this._commandCollection[0].CommandText = "\r\n\t\t\t\t\t\t\t\t\t\t\tSELECT dbo.Pecas.ID_Peca\r\n\t\t\t\t\t\t\t\t\t\t\tFROM dbo.Pecas\r\n\t\t\t\t\t\t\t\t\t\t\tWHER" +
+                "E dbo.Pecas.Nome = @Nome\r\n\t\t\t\t\t\t\t\t\t\t";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nome", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Nome", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
