@@ -343,6 +343,7 @@ SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WH
               <Mapping SourceColumn="Endereco" DataSetColumn="Endereco" />
             </Mappings>
             <Sources>
+<<<<<<< HEAD
               <DbSource ConnectionRef="MecanicaDBConexao (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Adicionar_Fornecedor" Modifier="Public" Name="Adicionar_Fornecedor" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Adicionar_Fornecedor">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -365,6 +366,8 @@ SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WH
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+=======
+>>>>>>> 574bc89d3b965e96c700a365a0c16451ea72ad29
               <DbSource ConnectionRef="MecanicaDBConexao (Settings)" DbObjectName="MecanicaDB.dbo.Fornecedores" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="Pegar_Fornecedor" GetMethodModifier="Public" GetMethodName="Pegar_Fornecedor" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Pegar_Fornecedor" UserSourceName="Pegar_Fornecedor">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">

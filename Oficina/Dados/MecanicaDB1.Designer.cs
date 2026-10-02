@@ -13108,7 +13108,11 @@ SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WH
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
+<<<<<<< HEAD
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+=======
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+>>>>>>> 574bc89d3b965e96c700a365a0c16451ea72ad29
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM dbo.Fornecedores" +
@@ -13116,6 +13120,7 @@ SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WH
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
+<<<<<<< HEAD
             this._commandCollection[1].CommandText = "INSERT INTO [dbo].[Fornecedores] ([Nome], [CNPJ], [Telefone], [Email], [Endereco]" +
                 ") VALUES (@Nome, @CNPJ, @Telefone, @Email, @Endereco);";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
@@ -13133,6 +13138,10 @@ SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WH
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT ID_Fornecedor, Nome FROM dbo.Fornecedores order by ID_Fornecedor";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+=======
+            this._commandCollection[1].CommandText = "SELECT ID_Fornecedor, Nome FROM dbo.Fornecedores order by ID_Fornecedor";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+>>>>>>> 574bc89d3b965e96c700a365a0c16451ea72ad29
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13163,6 +13172,7 @@ SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+<<<<<<< HEAD
         public virtual MecanicaDB.FornecedoresDataTable Mostrar_Fornecedores() {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             MecanicaDB.FornecedoresDataTable dataTable = new MecanicaDB.FornecedoresDataTable();
@@ -13176,6 +13186,10 @@ SELECT ID_Fornecedor, Nome, CNPJ, Telefone, Email, Endereco FROM Fornecedores WH
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual MecanicaDB.FornecedoresDataTable Pegar_Fornecedor() {
             this.Adapter.SelectCommand = this.CommandCollection[3];
+=======
+        public virtual MecanicaDB.FornecedoresDataTable Pegar_Fornecedor() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+>>>>>>> 574bc89d3b965e96c700a365a0c16451ea72ad29
             MecanicaDB.FornecedoresDataTable dataTable = new MecanicaDB.FornecedoresDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

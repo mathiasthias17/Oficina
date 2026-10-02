@@ -83,7 +83,10 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.label25 = new System.Windows.Forms.Label();
+=======
+>>>>>>> 574bc89d3b965e96c700a365a0c16451ea72ad29
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -171,11 +174,15 @@
             this.label23 = new System.Windows.Forms.Label();
             this.dataGridView10 = new System.Windows.Forms.DataGridView();
             this.oSServicosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+<<<<<<< HEAD
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
             this.label40 = new System.Windows.Forms.Label();
+=======
+            this.label25 = new System.Windows.Forms.Label();
+>>>>>>> 574bc89d3b965e96c700a365a0c16451ea72ad29
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -324,14 +331,14 @@
             // peçasToolStripMenuItem1
             // 
             this.peçasToolStripMenuItem1.Name = "peçasToolStripMenuItem1";
-            this.peçasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.peçasToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.peçasToolStripMenuItem1.Text = "Peças";
             this.peçasToolStripMenuItem1.Click += new System.EventHandler(this.peçasToolStripMenuItem1_Click);
             // 
             // serviçosToolStripMenuItem
             // 
             this.serviçosToolStripMenuItem.Name = "serviçosToolStripMenuItem";
-            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.serviçosToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.serviçosToolStripMenuItem.Text = "Serviços";
             this.serviçosToolStripMenuItem.Click += new System.EventHandler(this.serviçosToolStripMenuItem_Click);
             // 
@@ -814,9 +821,16 @@
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.dataGridView4);
+<<<<<<< HEAD
             this.panel6.Location = new System.Drawing.Point(138, 488);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(15, 10);
+=======
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(794, 522);
+>>>>>>> 574bc89d3b965e96c700a365a0c16451ea72ad29
             this.panel6.TabIndex = 9;
             this.panel6.Visible = false;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
@@ -840,6 +854,7 @@
             this.panel7.Size = new System.Drawing.Size(384, 366);
             this.panel7.TabIndex = 1;
             // 
+<<<<<<< HEAD
             // label25
             // 
             this.label25.AutoSize = true;
@@ -853,6 +868,8 @@
             this.label25.Text = "X";
             this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
+=======
+>>>>>>> 574bc89d3b965e96c700a365a0c16451ea72ad29
             // label27
             // 
             this.label27.AutoSize = true;
@@ -1784,6 +1801,7 @@
             // 
             this.oSServicosBindingSource.DataMember = "OS_Servicos";
             // 
+<<<<<<< HEAD
             // maskedTextBox1
             // 
             this.maskedTextBox1.Location = new System.Drawing.Point(61, 90);
@@ -1827,6 +1845,20 @@
             this.label40.TabIndex = 17;
             this.label40.Text = "X";
             this.label40.Click += new System.EventHandler(this.label40_Click);
+=======
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label25.Location = new System.Drawing.Point(360, 3);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(20, 20);
+            this.label25.TabIndex = 19;
+            this.label25.Text = "X";
+            this.label25.Click += new System.EventHandler(this.label25_Click);
+>>>>>>> 574bc89d3b965e96c700a365a0c16451ea72ad29
             // 
             // inicio
             // 
@@ -2143,6 +2175,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown10;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label25;
+<<<<<<< HEAD
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label34;
@@ -2161,6 +2194,8 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox4;
         private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.Label label40;
+=======
+>>>>>>> 574bc89d3b965e96c700a365a0c16451ea72ad29
     }
 }
 
