@@ -1,0 +1,683 @@
+USE master;
+GO
+
+IF DB_ID('MecanicaDB') IS NOT NULL
+BEGIN
+    ALTER DATABASE MecanicaDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE MecanicaDB;
+END
+GO
+
+CREATE DATABASE MecanicaDB;
+GO
+
+USE MecanicaDB;
+GO
+
+
+/* =====================================================
+   TABELA CLIENTES
+   ===================================================== */
+
+CREATE TABLE Clientes (
+    ID_Cliente INT IDENTITY(1,1) PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    CPF VARCHAR(14) UNIQUE,
+    Telefone VARCHAR(20),
+    Email VARCHAR(100),
+    Endereco VARCHAR(200),
+    Data_Cadastro DATETIME2 NOT NULL DEFAULT SYSDATETIME()
+);
+GO
+
+
+/* =====================================================
+   TABELA VEICULOS
+   ===================================================== */
+
+CREATE TABLE Veiculos (
+    ID_Veiculo INT IDENTITY(1,1) PRIMARY KEY,
+    ID_Cliente INT NOT NULL,
+    Placa VARCHAR(10) NOT NULL UNIQUE,
+    Marca VARCHAR(50) NOT NULL,
+    Modelo VARCHAR(50) NOT NULL,
+    Ano INT,
+    Cor VARCHAR(30),
+
+    CONSTRAINT FK_Veiculos_Clientes
+        FOREIGN KEY (ID_Cliente)
+        REFERENCES Clientes(ID_Cliente),
+
+    CONSTRAINT CK_Veiculos_Ano
+        CHECK (Ano BETWEEN 1950 AND 2100)
+);
+GO
+
+
+/* =====================================================
+   TABELA FUNCIONARIOS
+   ===================================================== */
+
+CREATE TABLE Funcionarios (
+    ID_Funcionario INT IDENTITY(1,1) PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    CPF VARCHAR(14) UNIQUE,
+    Cargo VARCHAR(50) NOT NULL,
+    Telefone VARCHAR(20),
+    Salario DECIMAL(10,2),
+    Data_Admissao DATE,
+
+    CONSTRAINT CK_Funcionarios_Salario
+        CHECK (Salario >= 0)
+);
+GO
+
+
+/* =====================================================
+   TABELA SERVICOS
+   ===================================================== */
+
+CREATE TABLE Servicos (
+    ID_Servico INT IDENTITY(1,1) PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Descricao VARCHAR(255),
+    Preco DECIMAL(10,2) NOT NULL,
+    Tempo_Estimado INT,
+
+    CONSTRAINT CK_Servicos_Preco
+        CHECK (Preco >= 0)
+);
+GO
+
+
+/* =====================================================
+   TABELA FORNECEDORES
+   ===================================================== */
+
+CREATE TABLE Fornecedores (
+    ID_Fornecedor INT IDENTITY(1,1) PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    CNPJ VARCHAR(18) UNIQUE,
+    Telefone VARCHAR(20),
+    Email VARCHAR(100),
+    Endereco VARCHAR(200)
+);
+GO
+
+
+/* =====================================================
+   TABELA PECAS
+   ===================================================== */
+
+CREATE TABLE Pecas (
+    ID_Peca INT IDENTITY(1,1) PRIMARY KEY,
+    ID_Fornecedor INT,
+    Nome VARCHAR(100) NOT NULL,
+    Codigo VARCHAR(50) NOT NULL UNIQUE,
+    Preco_Custo DECIMAL(10,2) NOT NULL,
+    Preco_Venda DECIMAL(10,2) NOT NULL,
+
+    CONSTRAINT FK_Pecas_Fornecedor
+        FOREIGN KEY (ID_Fornecedor)
+        REFERENCES Fornecedores(ID_Fornecedor),
+
+    CONSTRAINT CK_Pecas_Preco
+        CHECK (
+            Preco_Custo >= 0
+            AND Preco_Venda >= 0
+        )
+);
+GO
+
+
+/* =====================================================
+   TABELA ESTOQUE
+   ===================================================== */
+
+CREATE TABLE Estoque (
+    ID_Estoque INT IDENTITY(1,1) PRIMARY KEY,
+    ID_Peca INT NOT NULL UNIQUE,
+    Quantidade INT NOT NULL DEFAULT 0,
+    Estoque_Minimo INT NOT NULL DEFAULT 5,
+    Ultima_Atualizacao DATETIME2 NOT NULL DEFAULT SYSDATETIME(),
+
+    CONSTRAINT FK_Estoque_Peca
+        FOREIGN KEY (ID_Peca)
+        REFERENCES Pecas(ID_Peca),
+
+    CONSTRAINT CK_Estoque_Quantidade
+        CHECK (Quantidade >= 0)
+);
+GO
+
+
+/* =====================================================
+   TABELA ORDENS DE SERVICO
+   ===================================================== */
+
+CREATE TABLE OrdensServico (
+    ID_OS INT IDENTITY(1,1) PRIMARY KEY,
+    ID_Veiculo INT NOT NULL,
+    ID_Funcionario INT,
+    Data_Abertura DATETIME2 NOT NULL DEFAULT SYSDATETIME(),
+    Data_Fechamento DATETIME2,
+    Status_OS VARCHAR(30) NOT NULL DEFAULT 'ABERTA',
+    Problema_Relatado VARCHAR(500),
+    Observacoes VARCHAR(500),
+
+    CONSTRAINT FK_OS_Veiculo
+        FOREIGN KEY (ID_Veiculo)
+        REFERENCES Veiculos(ID_Veiculo),
+
+    CONSTRAINT FK_OS_Funcionario
+        FOREIGN KEY (ID_Funcionario)
+        REFERENCES Funcionarios(ID_Funcionario),
+
+    CONSTRAINT CK_OS_Status
+        CHECK (
+            Status_OS IN (
+                'ABERTA',
+                'EM ANDAMENTO',
+                'AGUARDANDO PECA',
+                'FINALIZADA',
+                'CANCELADA'
+            )
+        )
+);
+GO
+
+
+/* =====================================================
+   SERVICOS DA ORDEM DE SERVICO
+   ===================================================== */
+
+CREATE TABLE OS_Servicos (
+    ID_OS_Servico INT IDENTITY(1,1) PRIMARY KEY,
+    ID_OS INT NOT NULL,
+    ID_Servico INT NOT NULL,
+    Quantidade INT NOT NULL DEFAULT 1,
+    Preco_Unitario DECIMAL(10,2) NOT NULL,
+
+    CONSTRAINT FK_OSServicos_OS
+        FOREIGN KEY (ID_OS)
+        REFERENCES OrdensServico(ID_OS),
+
+    CONSTRAINT FK_OSServicos_Servico
+        FOREIGN KEY (ID_Servico)
+        REFERENCES Servicos(ID_Servico),
+
+    CONSTRAINT CK_OSServicos_Quantidade
+        CHECK (Quantidade > 0),
+
+    CONSTRAINT CK_OSServicos_Preco
+        CHECK (Preco_Unitario >= 0)
+);
+GO
+
+
+/* =====================================================
+   PECAS UTILIZADAS NA ORDEM DE SERVICO
+   ===================================================== */
+
+CREATE TABLE OS_Pecas (
+    ID_OS_Peca INT IDENTITY(1,1) PRIMARY KEY,
+    ID_OS INT NOT NULL,
+    ID_Peca INT NOT NULL,
+    Quantidade INT NOT NULL,
+    Preco_Unitario DECIMAL(10,2) NOT NULL,
+
+    CONSTRAINT FK_OSPecas_OS
+        FOREIGN KEY (ID_OS)
+        REFERENCES OrdensServico(ID_OS),
+
+    CONSTRAINT FK_OSPecas_Peca
+        FOREIGN KEY (ID_Peca)
+        REFERENCES Pecas(ID_Peca),
+
+    CONSTRAINT CK_OSPecas_Quantidade
+        CHECK (Quantidade > 0)
+);
+GO
+
+
+/* =====================================================
+   MOVIMENTACAO DE ESTOQUE
+   ===================================================== */
+
+CREATE TABLE MovimentacoesEstoque (
+    ID_Movimentacao INT IDENTITY(1,1) PRIMARY KEY,
+    ID_Peca INT NOT NULL,
+    ID_OS INT NULL,
+    Tipo VARCHAR(10) NOT NULL,
+    Quantidade INT NOT NULL,
+    Motivo VARCHAR(255),
+    Data_Movimentacao DATETIME2 NOT NULL DEFAULT SYSDATETIME(),
+
+    CONSTRAINT FK_MovEstoque_Peca
+        FOREIGN KEY (ID_Peca)
+        REFERENCES Pecas(ID_Peca),
+
+    CONSTRAINT FK_MovEstoque_OS
+        FOREIGN KEY (ID_OS)
+        REFERENCES OrdensServico(ID_OS),
+
+    CONSTRAINT CK_MovEstoque_Tipo
+        CHECK (Tipo IN ('ENTRADA', 'SAIDA', 'AJUSTE')),
+
+    CONSTRAINT CK_MovEstoque_Quantidade
+        CHECK (Quantidade > 0)
+);
+GO
+
+
+/* =====================================================
+   HISTORICO DA ORDEM DE SERVICO
+   ===================================================== */
+
+CREATE TABLE HistoricoOS (
+    ID_Historico INT IDENTITY(1,1) PRIMARY KEY,
+    ID_OS INT NOT NULL,
+    Status_Anterior VARCHAR(30),
+    Status_Novo VARCHAR(30) NOT NULL,
+    Observacao VARCHAR(255),
+    Data_Alteracao DATETIME2 NOT NULL DEFAULT SYSDATETIME(),
+
+    CONSTRAINT FK_HistoricoOS_OS
+        FOREIGN KEY (ID_OS)
+        REFERENCES OrdensServico(ID_OS)
+);
+GO
+
+
+/* =====================================================
+   FINANCEIRO
+   ===================================================== */
+
+CREATE TABLE Financeiro (
+    ID_Financeiro INT IDENTITY(1,1) PRIMARY KEY,
+    ID_OS INT NULL,
+    Tipo VARCHAR(10) NOT NULL,
+    Descricao VARCHAR(255) NOT NULL,
+    Valor DECIMAL(10,2) NOT NULL,
+    Data_Movimentacao DATETIME2 NOT NULL DEFAULT SYSDATETIME(),
+    Forma_Pagamento VARCHAR(30),
+    Status_Pagamento VARCHAR(20) NOT NULL DEFAULT 'PENDENTE',
+
+    CONSTRAINT FK_Financeiro_OS
+        FOREIGN KEY (ID_OS)
+        REFERENCES OrdensServico(ID_OS),
+
+    CONSTRAINT CK_Financeiro_Tipo
+        CHECK (Tipo IN ('ENTRADA', 'SAIDA')),
+
+    CONSTRAINT CK_Financeiro_Valor
+        CHECK (Valor > 0)
+);
+GO
+
+
+/* =====================================================
+   INDICES
+   ===================================================== */
+
+CREATE INDEX IX_Veiculos_Cliente
+ON Veiculos(ID_Cliente);
+
+CREATE INDEX IX_OS_Veiculo
+ON OrdensServico(ID_Veiculo);
+
+CREATE INDEX IX_OS_Funcionario
+ON OrdensServico(ID_Funcionario);
+
+CREATE INDEX IX_OS_Status
+ON OrdensServico(Status_OS);
+
+CREATE INDEX IX_OS_Data
+ON OrdensServico(Data_Abertura);
+
+CREATE INDEX IX_OSServicos_OS
+ON OS_Servicos(ID_OS);
+
+CREATE INDEX IX_OSPecas_OS
+ON OS_Pecas(ID_OS);
+
+CREATE INDEX IX_OSPecas_Peca
+ON OS_Pecas(ID_Peca);
+
+CREATE INDEX IX_Financeiro_Data
+ON Financeiro(Data_Movimentacao);
+GO
+
+
+/* =====================================================
+   TRIGGER - HISTORICO DE ALTERACAO DA OS
+   ===================================================== */
+
+CREATE TRIGGER TRG_HistoricoStatusOS
+ON OrdensServico
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO HistoricoOS
+    (
+        ID_OS,
+        Status_Anterior,
+        Status_Novo,
+        Observacao
+    )
+    SELECT
+        I.ID_OS,
+        D.Status_OS,
+        I.Status_OS,
+        'Status alterado'
+    FROM inserted I
+    INNER JOIN deleted D
+        ON I.ID_OS = D.ID_OS
+    WHERE I.Status_OS <> D.Status_OS;
+END;
+GO
+
+
+/* =====================================================
+   TRIGGER - BAIXA AUTOMATICA DO ESTOQUE
+   ===================================================== */
+
+CREATE TRIGGER TRG_BaixaEstoque
+ON OS_Pecas
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE E
+    SET
+        E.Quantidade = E.Quantidade - I.Quantidade,
+        E.Ultima_Atualizacao = SYSDATETIME()
+    FROM Estoque E
+    INNER JOIN inserted I
+        ON E.ID_Peca = I.ID_Peca;
+
+    INSERT INTO MovimentacoesEstoque
+    (
+        ID_Peca,
+        ID_OS,
+        Tipo,
+        Quantidade,
+        Motivo
+    )
+    SELECT
+        ID_Peca,
+        ID_OS,
+        'SAIDA',
+        Quantidade,
+        'Peça utilizada em OS'
+    FROM inserted;
+END;
+GO
+
+
+/* =====================================================
+   VIEW - ORDENS COMPLETAS
+   ===================================================== */
+
+CREATE VIEW VW_OrdensCompletas
+AS
+SELECT
+    OS.ID_OS,
+    C.Nome AS Cliente,
+    C.Telefone,
+    V.Placa,
+    V.Marca,
+    V.Modelo,
+    F.Nome AS Funcionario,
+    OS.Data_Abertura,
+    OS.Data_Fechamento,
+    OS.Status_OS,
+    OS.Problema_Relatado,
+    OS.Observacoes
+FROM OrdensServico OS
+INNER JOIN Veiculos V
+    ON OS.ID_Veiculo = V.ID_Veiculo
+INNER JOIN Clientes C
+    ON V.ID_Cliente = C.ID_Cliente
+LEFT JOIN Funcionarios F
+    ON OS.ID_Funcionario = F.ID_Funcionario;
+GO
+
+
+/* =====================================================
+   VIEW - TOTAL DAS ORDENS
+   ===================================================== */
+
+CREATE VIEW VW_TotalOrdens
+AS
+SELECT
+    OS.ID_OS,
+    C.Nome AS Cliente,
+    V.Placa,
+
+    ISNULL(
+        (
+            SELECT SUM(
+                Quantidade * Preco_Unitario
+            )
+            FROM OS_Servicos
+            WHERE ID_OS = OS.ID_OS
+        ), 0
+    )
+    +
+    ISNULL(
+        (
+            SELECT SUM(
+                Quantidade * Preco_Unitario
+            )
+            FROM OS_Pecas
+            WHERE ID_OS = OS.ID_OS
+        ), 0
+    ) AS Total_OS
+
+FROM OrdensServico OS
+INNER JOIN Veiculos V
+    ON OS.ID_Veiculo = V.ID_Veiculo
+INNER JOIN Clientes C
+    ON V.ID_Cliente = C.ID_Cliente;
+GO
+
+
+/* =====================================================
+   VIEW - ESTOQUE
+   ===================================================== */
+
+CREATE VIEW VW_Estoque
+AS
+SELECT
+    P.ID_Peca,
+    P.Nome AS Peca,
+    P.Codigo,
+    E.Quantidade,
+    E.Estoque_Minimo,
+    CASE
+        WHEN E.Quantidade <= E.Estoque_Minimo
+            THEN 'ESTOQUE BAIXO'
+        ELSE 'NORMAL'
+    END AS Situacao
+FROM Pecas P
+INNER JOIN Estoque E
+    ON P.ID_Peca = E.ID_Peca;
+GO
+
+
+/* =====================================================
+   PROCEDURE - CADASTRAR CLIENTE
+   ===================================================== */
+
+CREATE PROCEDURE SP_CadastrarCliente
+    @Nome VARCHAR(100),
+    @CPF VARCHAR(14),
+    @Telefone VARCHAR(20),
+    @Email VARCHAR(100),
+    @Endereco VARCHAR(200)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO Clientes
+    (
+        Nome,
+        CPF,
+        Telefone,
+        Email,
+        Endereco
+    )
+    VALUES
+    (
+        @Nome,
+        @CPF,
+        @Telefone,
+        @Email,
+        @Endereco
+    );
+
+    SELECT SCOPE_IDENTITY() AS ID_Cliente;
+END;
+GO
+
+
+/* =====================================================
+   PROCEDURE - ABRIR OS
+   ===================================================== */
+
+CREATE PROCEDURE SP_AbrirOS
+    @ID_Veiculo INT,
+    @ID_Funcionario INT,
+    @Problema VARCHAR(500),
+    @Observacoes VARCHAR(500)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO OrdensServico
+    (
+        ID_Veiculo,
+        ID_Funcionario,
+        Problema_Relatado,
+        Observacoes
+    )
+    VALUES
+    (
+        @ID_Veiculo,
+        @ID_Funcionario,
+        @Problema,
+        @Observacoes
+    );
+
+    SELECT SCOPE_IDENTITY() AS ID_OS;
+END;
+GO
+
+
+/* =====================================================
+   PROCEDURE - ALTERAR STATUS
+   ===================================================== */
+
+CREATE PROCEDURE SP_AlterarStatusOS
+    @ID_OS INT,
+    @NovoStatus VARCHAR(30)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF NOT EXISTS (
+        SELECT 1
+        FROM OrdensServico
+        WHERE ID_OS = @ID_OS
+    )
+    BEGIN
+        RAISERROR('OS não encontrada.',16,1);
+        RETURN;
+    END;
+
+    UPDATE OrdensServico
+    SET
+        Status_OS = @NovoStatus,
+        Data_Fechamento =
+            CASE
+                WHEN @NovoStatus = 'FINALIZADA'
+                THEN SYSDATETIME()
+                ELSE Data_Fechamento
+            END
+    WHERE ID_OS = @ID_OS;
+END;
+GO
+
+
+/* =====================================================
+   PROCEDURE - PAGAMENTO
+   ===================================================== */
+
+CREATE PROCEDURE SP_RegistrarPagamento
+    @ID_OS INT,
+    @Valor DECIMAL(10,2),
+    @FormaPagamento VARCHAR(30)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO Financeiro
+    (
+        ID_OS,
+        Tipo,
+        Descricao,
+        Valor,
+        Forma_Pagamento,
+        Status_Pagamento
+    )
+    VALUES
+    (
+        @ID_OS,
+        'ENTRADA',
+        CONCAT('Pagamento OS #', @ID_OS),
+        @Valor,
+        @FormaPagamento,
+        'PAGO'
+    );
+END;
+GO
+
+
+/* =====================================================
+   PROCEDURE - ENTRADA DE ESTOQUE
+   ===================================================== */
+
+CREATE PROCEDURE SP_EntradaEstoque
+    @ID_Peca INT,
+    @Quantidade INT,
+    @Motivo VARCHAR(255)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE Estoque
+    SET
+        Quantidade = Quantidade + @Quantidade,
+        Ultima_Atualizacao = SYSDATETIME()
+    WHERE ID_Peca = @ID_Peca;
+
+    INSERT INTO MovimentacoesEstoque
+    (
+        ID_Peca,
+        Tipo,
+        Quantidade,
+        Motivo
+    )
+    VALUES
+    (
+        @ID_Peca,
+        'ENTRADA',
+        @Quantidade,
+        @Motivo
+    );
+END;
+GO

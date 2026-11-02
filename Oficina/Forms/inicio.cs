@@ -435,11 +435,18 @@ namespace Oficina
 
         private void inicio_Load(object sender, EventArgs e)
         {
-            radioButton2.Checked = true;
-            fornecedor = fornecedores.Pegar_Fornecedor();
+            try
+            {
+                radioButton2.Checked = true;
+                fornecedor = fornecedores.Pegar_Fornecedor();
 
-            comboBox1.DataSource = fornecedor;
-            comboBox1.DisplayMember = fornecedor.Columns[1].ColumnName;
+                comboBox1.DataSource = fornecedor;
+                comboBox1.DisplayMember = fornecedor.Columns[1].ColumnName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } 
         }
 
         private void button6_Click(object sender, EventArgs e)
