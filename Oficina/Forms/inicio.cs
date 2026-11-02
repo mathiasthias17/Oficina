@@ -25,6 +25,7 @@ namespace Oficina
         veiculosTableAdapter veiculos = new veiculosTableAdapter();
         EstoqueTableAdapter estoque = new EstoqueTableAdapter();
         FornecedoresTableAdapter fornecedores = new FornecedoresTableAdapter();
+        FinanceiroTableAdapter financeiro = new FinanceiroTableAdapter();
         DataTable fornecedor = new DataTable();
         public inicio()
         {
@@ -252,6 +253,8 @@ namespace Oficina
             esconder();
             panel8.Visible = true;
             panel8.Dock = DockStyle.Fill;
+            dataGridView5.DataSource = null;
+            dataGridView5.DataSource = financeiro.pegar_financeiro();
 
         }
 
@@ -435,11 +438,18 @@ namespace Oficina
 
         private void inicio_Load(object sender, EventArgs e)
         {
-            radioButton2.Checked = true;
-            fornecedor = fornecedores.Pegar_Fornecedor();
+            try
+            {
+                radioButton2.Checked = true;
+                fornecedor = fornecedores.Pegar_Fornecedor();
 
-            comboBox1.DataSource = fornecedor;
-            comboBox1.DisplayMember = fornecedor.Columns[1].ColumnName;
+                comboBox1.DataSource = fornecedor;
+                comboBox1.DisplayMember = fornecedor.Columns[1].ColumnName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } 
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -530,6 +540,10 @@ namespace Oficina
         private void label40_Click(object sender, EventArgs e)
         {
             panel11.Visible = false;
+        }
+
+        private void dataGridView5_Paint(object sender, PaintEventArgs e)
+        {
         }
         //try
         //    {
