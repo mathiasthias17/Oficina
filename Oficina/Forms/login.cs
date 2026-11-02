@@ -199,13 +199,11 @@ namespace Oficina.Forms
                 MessageBox.Show("Você não tem idade suficiente para acessar o sistema.");
                 dateTimePicker1.Value = DateTime.Today;
                 textBox3.Enabled = textBox4.Enabled = false;
-                radioButton1.Enabled = radioButton2.Enabled = radioButton3.Enabled = false;
                 pictureBox1.Enabled = button1.Enabled = false;
             }
             if (dateTimePicker1.Value.Year < hoje)
             {
                 textBox3.Enabled = textBox4.Enabled = true;
-                radioButton1.Enabled = radioButton2.Enabled = radioButton3.Enabled = true;
                 pictureBox1.Enabled = button1.Enabled = true;
             }
         }
