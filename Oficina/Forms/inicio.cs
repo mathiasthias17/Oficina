@@ -27,12 +27,10 @@ namespace Oficina
         FornecedoresTableAdapter fornecedores = new FornecedoresTableAdapter();
         FinanceiroTableAdapter financeiro = new FinanceiroTableAdapter();
         DataTable fornecedor = new DataTable();
-        public inicio()
+        public inicio(int nivel, string nome)
         {
             InitializeComponent();
-            panel1.BackColor = Color.FromArgb(120, 10, 10, 10);
             panel4.BackColor = Color.FromArgb(120, 225, 225, 225);
-            label1.BackColor = Color.FromArgb(120, 10, 10, 10);
             panel3.BackColor = Color.FromArgb(150, 225, 225, 225);
             pictureBox8.BackColor = pictureBox9.BackColor = Color.FromArgb(140, 255, 255, 255);
             pictureBox10.BackColor = Color.FromArgb(180, 205, 205, 255);
@@ -40,109 +38,23 @@ namespace Oficina
             dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy HH:mm";
             dateTimePicker2.Value = DateTime.Today;
-            pictureBox3.BackgroundImage = Oficina.Properties.Resources.quadro3;
-            pictureBox13.Image = Oficina.Properties.Resources.baixo;
-            label4.BackColor = Color.FromArgb(250, 255, 128, 0);
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             button3.BackColor = Color.FromArgb(250, 255, 255, 255);
             pictureBox6.BackColor = Color.FromArgb(120, 10, 10, 10);
             pictureBox4.BackColor = Color.FromArgb(70, 10, 10, 10);
+            label5.Text = nome;
+            esconder();
 
-            var loginForm = System.Windows.Forms.Application.OpenForms.OfType<login>().FirstOrDefault();
-            if (loginForm != null)
+            if (nivel == 1)
             {
-                if (loginForm.nivel == 1)
-                {
-                    MessageBox.Show("Bem-vindo Administrador");
-                    veiculosToolStripMenuItem.Visible = false;
-                    pictureBox1.Image = Oficina.Properties.Resources.funcionarios;
-                    label2.Text = "Funcionários";
-                    pictureBox2.Image = Oficina.Properties.Resources.Finanças;
-                    label3.Text = "Financeiro";
-                    pictureBox3.Image = Oficina.Properties.Resources.Fornecedores1;
-                    label4.Text = "Fornecedores";
-                }
-                else if (loginForm.nivel == 2)
-                {
-                    MessageBox.Show("Bem-vindo Funcionário");
-                    veiculosToolStripMenuItem.Visible = false;
-                    funcionáriosToolStripMenuItem.Visible = false;
-                    pictureBox1.Image = Oficina.Properties.Resources.estoque;
-                    label2.Text = " Estoque";
-                    pictureBox2.Image = Oficina.Properties.Resources.Peças;
-                    label3.Text = "Peças";
-                    pictureBox3.Image = Oficina.Properties.Resources.Fornecedores;
-                    label4.Text = "Fornecedores";
-                }
-                else if (loginForm.nivel == 3)
-                {
-                    reposiçãoToolStripMenuItem.Visible = false;
-                    peçasToolStripMenuItem.Visible = false;
-                    fornecedoresToolStripMenuItem.Visible = false;
-                    funcionáriosToolStripMenuItem.Visible = false;
-                    finanaceiroToolStripMenuItem.Visible = false;
-                    MessageBox.Show("Bem-vindo Cliente");
-                    pictureBox1.Image = Oficina.Properties.Resources.pedir_serviço;
-                    label2.Text = " Pedir Serviço";
-                    pictureBox2.Image = Oficina.Properties.Resources.Peças;
-                    label3.Text = "Peças";
-                    pictureBox3.Image = Oficina.Properties.Resources.estoque;
-                    label4.Text = "Estoque";
-                }
-                pictureBox5.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+                MessageBox.Show("Bem-vindo Administrador");
             }
-        }
-
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox2.BackgroundImage = Oficina.Properties.Resources.quadro3;
-            pictureBox11.Image = Oficina.Properties.Resources.baixo;
-            label2.BackColor = Color.FromArgb(250, 255, 128, 0);
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        }
-
-        private void pictureBox2_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox2.BackgroundImage = Oficina.Properties.Resources.quadro11;
-            pictureBox11.Image = Oficina.Properties.Resources.baixo1;
-            label2.BackColor = Color.FromArgb(250, 252, 218, 136);
-            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        }
-
-
-
-        private void pictureBox1_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.BackgroundImage = Oficina.Properties.Resources.quadro3;
-            pictureBox12.Image = Oficina.Properties.Resources.baixo;
-            label3.BackColor = Color.FromArgb(250, 255, 128, 0);
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        }
-
-        private void pictureBox1_MouseHover(object sender, EventArgs e)
-        {
-            pictureBox1.BackgroundImage = Oficina.Properties.Resources.quadro11;
-            pictureBox12.Image = Oficina.Properties.Resources.baixo1;
-            label3.BackColor = Color.FromArgb(250, 252, 218, 136);
-            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        }
-
-        private void pictureBox3_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox3.BackgroundImage = Oficina.Properties.Resources.quadro3;
-            pictureBox13.Image = Oficina.Properties.Resources.baixo;
-            label4.BackColor = Color.FromArgb(250, 255, 128, 0);
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        }
-
-
-        private void pictureBox3_MouseHover(object sender, EventArgs e)
-        {
-
-            pictureBox3.BackgroundImage = Oficina.Properties.Resources.quadro11;
-            pictureBox13.Image = Oficina.Properties.Resources.baixo1;
-            label4.BackColor = Color.FromArgb(250, 252, 218, 136);
-            this.label4.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            else if (nivel == 2)
+            {
+                MessageBox.Show("Bem-vindo Funcionário");
+                funcionáriosToolStripMenuItem.Visible = false;
+                adicionarFornecedorToolStripMenuItem.Visible = false;
+            }
+            pictureBox5.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
         }
 
 
@@ -160,8 +72,6 @@ namespace Oficina
                 esconder();
                 this.panel3.Location = new System.Drawing.Point(321, 585);
                 panel3.Visible = false;
-                panel1.Visible = true;
-                panel1.Dock = DockStyle.Fill;
                 pictureBox6.BackColor = Color.FromArgb(120, 10, 10, 10);
                 pictureBox4.BackColor = Color.FromArgb(70, 10, 10, 10);
             }
@@ -174,59 +84,31 @@ namespace Oficina
             loginForm.Show();
 
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            var loginForm = System.Windows.Forms.Application.OpenForms.OfType<login>().FirstOrDefault();
-            if (loginForm.nivel == 1)
-            {
-                label2.Text = "Funcionários";
-            }
-            else if (loginForm.nivel == 2)
-            {
-                label2.Text = "Estoque";
-            }
-            else if (loginForm.nivel == 3)
-            {
-                label2.Text = "Pedidos";
-            }
-        }
-
-
         public void esconder()
         {
-            panel1.Visible = panel17.Visible = panel4.Visible = panel3.Visible = panel5.Visible = panel2.Visible = panel6.Visible = panel7.Visible = panel8.Visible = panel9.Visible = panel10.Visible = panel11.Visible = panel12.Visible = panel13.Visible = panel15.Visible = false;
-            panel1.Dock = panel4.Dock = DockStyle.None;
-            pictureBox6.BackColor = Color.FromArgb(0, 0, 0, 0);
-            pictureBox4.Visible = pictureBox5.Visible = false;
-        }
-
-        private void paginaInicialToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            esconder();
-            panel1.Visible = true;
-            panel1.Dock = DockStyle.Fill;
-
-            pictureBox6.BackColor = Color.FromArgb(120, 10, 10, 10);
-            pictureBox4.BackColor = Color.FromArgb(70, 10, 10, 10);
-            pictureBox4.Visible = pictureBox5.Visible = true;
+            foreach(Control c in this.Controls)
+            {
+                if(c is Panel)
+                {
+                    c.Dock = DockStyle.None;
+                    c.Visible = false;
+                }
+            }
         }
 
         private void peçasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             esconder();
-            panel4.Visible = true;
-            panel4.Dock = DockStyle.Fill;
             panel5.Visible = true;
+            panel5.Dock = DockStyle.Fill;
 
         }
 
         private void veículosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             esconder();
-            panel4.Visible = true;
-            panel4.Dock = DockStyle.Fill;
             panel17.Visible = true;
+            panel17.Dock = DockStyle.Fill;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -253,9 +135,9 @@ namespace Oficina
             esconder();
             panel8.Visible = true;
             panel8.Dock = DockStyle.Fill;
+            dataGridView5.Visible = true;
             dataGridView5.DataSource = null;
             dataGridView5.DataSource = financeiro.pegar_financeiro();
-
         }
 
 
@@ -270,7 +152,7 @@ namespace Oficina
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy HH:mm";
             dateTimePicker2.Value = DateTime.Today;
         }
@@ -374,10 +256,11 @@ namespace Oficina
         decimal valor = 0;
         private void button3_Click(object sender, EventArgs e)
         {
-            string nome = textBox3.Text, cpf = maskedTextBox3.Text, telefone = maskedTextBox4.Text, cargo = textBox4.Text;
+            string nome = textBox3.Text, cpf = maskedTextBox3.Text, telefone = maskedTextBox4.Text, cargo = textBox4.Text, email = textBox11.Text, senha = maskedTextBox5.Text;
             decimal salario = valor;
             DateTime data = dateTimePicker2.Value;
-            funcionarios.adicionar_funcionario(nome, cpf, cargo, telefone, salario, data.ToString());
+            int nivele = comboBox2.SelectedIndex + 1;
+            funcionarios.adicionar_funcionario(nome, cpf, cargo, telefone, salario, data.ToString(), senha, email, nivele);
             panel10.Invalidate();
         }
 
@@ -449,7 +332,7 @@ namespace Oficina
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            } 
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -484,11 +367,11 @@ namespace Oficina
                     //Adicionar a peca na tabela Estoque
 
                     DataTable ID_peca = Pegar_ID.Pegar_ID_Nova(nome);
-                    int id_peca = Convert.ToInt32 (ID_peca.Rows[0]["ID_Peca"]);
+                    int id_peca = Convert.ToInt32(ID_peca.Rows[0]["ID_Peca"]);
                     estoque.Adicionar_Peca(id_peca, quantidade, quantidade_minima, atualizacao.ToString());
                     panel6.Invalidate();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -517,7 +400,7 @@ namespace Oficina
             {
                 dataGridView6.DataSource = fornecedores.Mostrar_Fornecedores();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -531,7 +414,7 @@ namespace Oficina
                 fornecedores.Adicionar_Fornecedor(Nome, CNPJ, Telefone, Email, Endereco);
                 panel9.Invalidate();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -544,6 +427,16 @@ namespace Oficina
 
         private void dataGridView5_Paint(object sender, PaintEventArgs e)
         {
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+
         }
         //try
         //    {
