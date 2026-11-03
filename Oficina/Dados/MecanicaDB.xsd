@@ -2025,6 +2025,20 @@ WHERE                       (Nome = @nome) AND (senha = @senha)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Funcionarios1" msprop:Generator_TableClassName="Funcionarios1DataTable" msprop:Generator_TableVarName="tableFuncionarios1" msprop:Generator_TablePropName="Funcionarios1" msprop:Generator_RowDeletingName="Funcionarios1RowDeleting" msprop:Generator_RowChangingName="Funcionarios1RowChanging" msprop:Generator_RowEvHandlerName="Funcionarios1RowChangeEventHandler" msprop:Generator_RowDeletedName="Funcionarios1RowDeleted" msprop:Generator_UserTableName="Funcionarios1" msprop:Generator_RowChangedName="Funcionarios1RowChanged" msprop:Generator_RowEvArgName="Funcionarios1RowChangeEvent" msprop:Generator_RowClassName="Funcionarios1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nivel" msprop:Generator_ColumnVarNameInTable="columnnivel" msprop:Generator_ColumnPropNameInRow="nivel" msprop:Generator_ColumnPropNameInTable="nivelColumn" msprop:Generator_UserColumnName="nivel" type="xs:int" />
+              <xs:element name="Nome" msprop:Generator_ColumnVarNameInTable="columnNome" msprop:Generator_ColumnPropNameInRow="Nome" msprop:Generator_ColumnPropNameInTable="NomeColumn" msprop:Generator_UserColumnName="Nome">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
