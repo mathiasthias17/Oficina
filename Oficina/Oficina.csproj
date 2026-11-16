@@ -102,6 +102,9 @@
     <Compile Include="Forms\SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\CadastroOS.resx">
+      <DependentUpon>CadastroOS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Historico.resx">
       <DependentUpon>Historico.cs</DependentUpon>
     </EmbeddedResource>
