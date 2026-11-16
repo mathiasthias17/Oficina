@@ -4,13 +4,14 @@
 
     partial class MecanicaDB
     {
+        partial class HistoricoOSDataTable
+        {
+        }
+
         partial class PecasDataTable
         {
         }
 
-        partial class FuncionariosDataTable
-        {
-        }
     }
 }
 
@@ -24,6 +25,4 @@ namespace Oficina.Dados.MecanicaDBTableAdapters
     {
     }
 
-    public partial class FuncionariosTableAdapter {
-    }
 }

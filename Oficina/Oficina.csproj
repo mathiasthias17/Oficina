@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Oficina</RootNamespace>
     <AssemblyName>Oficina</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MeusMetodos">
+      <HintPath>..\..\..\MeusMetodos\MeusMetodos\bin\Debug\MeusMetodos.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,10 +53,28 @@
     <Compile Include="Dados\MecanicaDB.cs">
       <DependentUpon>MecanicaDB.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Dados\MecanicaDB1.Designer.cs">
+    <Compile Include="Dados\MecanicaDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MecanicaDB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CadastroOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CadastroOS.Designer.cs">
+      <DependentUpon>CadastroOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EdicaoOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EdicaoOS.Designer.cs">
+      <DependentUpon>EdicaoOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Historico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Historico.Designer.cs">
+      <DependentUpon>Historico.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\inicio.cs">
       <SubType>Form</SubType>
@@ -66,10 +88,11 @@
     <Compile Include="Forms\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dados\MecanicaDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MecanicaDB.xsd</DependentUpon>
+    <Compile Include="Forms\userControls\OS_Card.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\userControls\OS_Card.Designer.cs">
+      <DependentUpon>OS_Card.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,11 +102,17 @@
     <Compile Include="Forms\SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Historico.resx">
+      <DependentUpon>Historico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\inicio.resx">
       <DependentUpon>inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\userControls\OS_Card.resx">
+      <DependentUpon>OS_Card.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,7 +133,7 @@
     <None Include="Dados\MecanicaDB.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>MecanicaDB1.Designer.cs</LastGenOutput>
+      <LastGenOutput>MecanicaDB.Designer.cs</LastGenOutput>
     </None>
     <None Include="Dados\MecanicaDB.xss">
       <DependentUpon>MecanicaDB.xsd</DependentUpon>
@@ -215,5 +244,6 @@
   <ItemGroup>
     <None Include="Resources\Fornecedores1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
