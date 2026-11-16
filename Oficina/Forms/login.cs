@@ -130,7 +130,6 @@ namespace Oficina.Forms
                     string nome = textBox3.Text, cpf = maskedTextBox2.Text, cargo = textBox7.Text,
                     telefone = maskedTextBox3.Text, data_admissao = dateTimePicker1.Text, senha = maskedTextBox4.Text,
                     email = textBox8.Text;
-                    funcionarios.login_novo_funcionario(nome, cpf, cargo, telefone, data_admissao, senha, email);
                 }
             }
             catch (Exception ex)

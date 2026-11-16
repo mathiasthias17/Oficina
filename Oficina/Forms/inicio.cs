@@ -1,14 +1,11 @@
 ﻿using Oficina.Forms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
+using MeusMetodos;
 using System.Windows.Forms;
 using Oficina.Dados.MecanicaDBTableAdapters;
 
@@ -27,6 +24,8 @@ namespace Oficina
         FornecedoresTableAdapter fornecedores = new FornecedoresTableAdapter();
         FinanceiroTableAdapter financeiro = new FinanceiroTableAdapter();
         DataTable fornecedor = new DataTable();
+        VW_OrdensCompletasTableAdapter ordensCompletasVW = new VW_OrdensCompletasTableAdapter();
+        int id;
         public inicio(int nivel, string nome)
         {
             InitializeComponent();
@@ -35,7 +34,7 @@ namespace Oficina
             pictureBox8.BackColor = pictureBox9.BackColor = Color.FromArgb(140, 255, 255, 255);
             pictureBox10.BackColor = Color.FromArgb(180, 205, 205, 255);
             panel3.Visible = false;
-            dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy HH:mm";
             dateTimePicker2.Value = DateTime.Today;
             button3.BackColor = Color.FromArgb(250, 255, 255, 255);
@@ -43,7 +42,6 @@ namespace Oficina
             pictureBox4.BackColor = Color.FromArgb(70, 10, 10, 10);
             label5.Text = nome;
             esconder();
-
             if (nivel == 1)
             {
                 MessageBox.Show("Bem-vindo Administrador");
@@ -64,13 +62,13 @@ namespace Oficina
             {
                 esconder();
                 panel3.Visible = true;
-                this.panel3.Location = new System.Drawing.Point(265, 31);
+                this.panel3.Location = new Point(265, 31);
                 pictureBox6.BackColor = pictureBox4.BackColor = Color.FromArgb(0, 0, 0, 0);
             }
             else
             {
                 esconder();
-                this.panel3.Location = new System.Drawing.Point(321, 585);
+                this.panel3.Location = new Point(321, 585);
                 panel3.Visible = false;
                 pictureBox6.BackColor = Color.FromArgb(120, 10, 10, 10);
                 pictureBox4.BackColor = Color.FromArgb(70, 10, 10, 10);
@@ -86,9 +84,9 @@ namespace Oficina
         }
         public void esconder()
         {
-            foreach(Control c in this.Controls)
+            foreach (Control c in this.Controls)
             {
-                if(c is Panel)
+                if (c is Panel)
                 {
                     c.Dock = DockStyle.None;
                     c.Visible = false;
@@ -101,7 +99,8 @@ namespace Oficina
             esconder();
             panel5.Visible = true;
             panel5.Dock = DockStyle.Fill;
-
+            button13.Visible = false;
+            button14.Visible = false;
         }
 
         private void veículosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,6 +121,7 @@ namespace Oficina
         {
             esconder();
             panel6.Visible = true;
+            panel7.Visible = false;
             panel6.Dock = DockStyle.Fill;
         }
 
@@ -190,6 +190,7 @@ namespace Oficina
             esconder();
             panel12.Visible = true;
             panel12.Dock = DockStyle.Fill;
+            dataGridView8.DataSource = ordensCompletasVW.Mostrar_ordens();
         }
 
         private void button4_MouseHover(object sender, EventArgs e)
@@ -204,7 +205,6 @@ namespace Oficina
 
         private void numericUpDown7_ValueChanged(object sender, EventArgs e)
         {
-            int nada;
             Double valor = 0, valor1;//preço_unitario
             valor1 = valor * Convert.ToDouble(numericUpDown7.Value);
             label22.Text = valor.ToString("valor1");
@@ -256,12 +256,21 @@ namespace Oficina
         decimal valor = 0;
         private void button3_Click(object sender, EventArgs e)
         {
-            string nome = textBox3.Text, cpf = maskedTextBox3.Text, telefone = maskedTextBox4.Text, cargo = textBox4.Text, email = textBox11.Text, senha = maskedTextBox5.Text;
+            string cpf = "";
+            if (Documentos.ValidarCPF(maskedTextBox3.Text)){
+                cpf = maskedTextBox3.Text;
+            }
+            else
+            {
+                MessageBox.Show("esse CPF não pode existir");
+            }
+                string nome = textBox3.Text, telefone = maskedTextBox4.Text, cargo = textBox4.Text, email = textBox11.Text, senha = maskedTextBox5.Text;
             decimal salario = valor;
             DateTime data = dateTimePicker2.Value;
             int nivele = comboBox2.SelectedIndex + 1;
             funcionarios.adicionar_funcionario(nome, cpf, cargo, telefone, salario, data.ToString(), senha, email, nivele);
-            panel10.Invalidate();
+            dataGridView7.DataSource = null;
+            dataGridView7.DataSource = funcionarios.mostrar_funcionarios();
         }
 
         private void textBox5_TextChanged_1(object sender, EventArgs e)
@@ -297,7 +306,6 @@ namespace Oficina
             dataGridView2.DataSource = clientes.Mostrar_Clientes();
             dataGridView2.AllowUserToAddRows = false;
             dataGridView2.RowHeadersVisible = false;
-            dataGridView2.Columns[0].Visible = false;
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
@@ -323,6 +331,8 @@ namespace Oficina
         {
             try
             {
+                panel6.Visible = true;
+                panel6.Dock = DockStyle.Fill;
                 radioButton2.Checked = true;
                 fornecedor = fornecedores.Pegar_Fornecedor();
 
@@ -410,7 +420,17 @@ namespace Oficina
         {
             try
             {
-                string Nome = textBox7.Text, CNPJ = maskedTextBox2.Text, Telefone = maskedTextBox1.Text, Email = textBox13.Text, Endereco = textBox14.Text;
+                string CNPJ = "";
+                if (Documentos.ValidarCnpj(maskedTextBox2.Text))
+                {
+                    CNPJ = maskedTextBox2.Text;
+                }
+                else
+                {
+                    MessageBox.Show("esse CNPJ não pode existir");
+                    return;
+                }
+                string Nome = textBox7.Text, Telefone = maskedTextBox1.Text, Email = textBox13.Text, Endereco = textBox14.Text;
                 fornecedores.Adicionar_Fornecedor(Nome, CNPJ, Telefone, Email, Endereco);
                 panel9.Invalidate();
             }
@@ -425,16 +445,297 @@ namespace Oficina
             panel11.Visible = false;
         }
 
-        private void dataGridView5_Paint(object sender, PaintEventArgs e)
+        private void label50_Click(object sender, EventArgs e)
         {
+            panel1.Visible = false;
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void panel1_VisibleChanged(object sender, EventArgs e)
         {
-
+            foreach (Control c in panel1.Controls)
+            {
+                if (c is TextBox) c.Text = null;
+                if (c is MaskedTextBox) c.Text = null;
+                if (c is DateTimePicker) c.Text = null;
+            }
+            comboBox2.SelectedIndex = -1;
         }
 
-        private void pictureBox11_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            { 
+                string cpf;
+                if (Documentos.ValidarCPF(maskedTextBox8.Text)){
+                    cpf = maskedTextBox8.Text;
+                }
+                else
+                {
+                    MessageBox.Show("esse CPF não pode existir");
+                    return;
+                }
+                string nome = textBox17.Text, cargo = textBox16.Text, telefone = maskedTextBox7.Text,
+                data_admissao = dateTimePicker3.Text, email = textBox12.Text, senha = maskedTextBox6.Text;
+                decimal salario = Convert.ToDecimal(textBox15.Text);
+                int nivele = Math.Abs(comboBox3.SelectedIndex + 1);
+                funcionarios.Atualizar_funcionario(nome, cpf, cargo, telefone, salario, data_admissao, email, senha, nivele, id);
+                panel1.Visible = false;
+                dataGridView7.DataSource = null;
+                dataGridView7.DataSource = funcionarios.mostrar_funcionarios();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void button9_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            panel11.Visible = true;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            panel11.Visible = false;
+            panel1.Visible = true;
+
+            try
+            {
+                DataTable funcionario = funcionarios.mostrar_funcionario(id);
+                if (funcionario.Rows.Count > 0)
+                {
+                    int nivel = Convert.ToInt32(funcionario.Rows[0]["nivel"]);
+                    textBox17.Text = funcionario.Rows[0]["Nome"].ToString();
+                    maskedTextBox8.Text = funcionario.Rows[0]["CPF"].ToString();
+                    textBox16.Text = funcionario.Rows[0]["Cargo"].ToString();
+                    maskedTextBox7.Text = funcionario.Rows[0]["Telefone"].ToString();
+                    textBox15.Text = funcionario.Rows[0]["Salario"].ToString();
+                    dateTimePicker3.Value = Convert.ToDateTime(funcionario.Rows[0]["Data_Admissao"]);
+                    textBox12.Text = funcionario.Rows[0]["email"].ToString();
+                    maskedTextBox6.Text = funcionario.Rows[0]["senha"].ToString();
+                    comboBox3.SelectedIndex = nivel - 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show($"Deseja realmente excluir o funcionario {dataGridView7.CurrentRow.Cells["Cargo"].Value} {dataGridView7.CurrentRow.Cells["Nome"].Value}", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                
+                    funcionarios.excluir_funcionario(id);
+                    dataGridView7.DataSource = null;
+                    dataGridView7.DataSource = funcionarios.mostrar_funcionarios();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridView7_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            button10.Visible = true;
+            button11.Visible = true;
+            id = (int)dataGridView7.CurrentRow.Cells["ID_Funcionario"].Value;
+        }
+
+        private void dataGridView7_Paint(object sender, PaintEventArgs e)
+        {
+
+            id = (int)dataGridView7.CurrentRow.Cells["ID_Funcionario"].Value;
+        }
+
+        private void dataGridView7_MouseClick(object sender, MouseEventArgs e)
+        {
+            button10.Visible = true;
+            button11.Visible = true;
+            id = (int)dataGridView7.CurrentRow.Cells["ID_Funcionario"].Value;
+        }
+
+        private void dataGridView2_MouseClick(object sender, MouseEventArgs e)
+        {
+            button13.Visible = true;
+            button14.Visible = true;
+            id = Convert.ToInt32(dataGridView2.CurrentRow.Cells["ID_Cliente"].Value);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            panel23.Visible = true;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            panel23.Visible = false;
+            panel24.Visible = true;
+            try
+            {
+                DataTable Clientes = clientes.Mostrar_Cliente(id);
+                if (Clientes.Rows.Count > 0)
+                {
+                    textBox23.Text = Clientes.Rows[0]["Nome"].ToString();
+                    maskedTextBox11.Text = Clientes.Rows[0]["CPF"].ToString();
+                    textBox22.Text = Clientes.Rows[0]["Email"].ToString();
+                    maskedTextBox12.Text = Clientes.Rows[0]["Telefone"].ToString();
+                    textBox21.Text = Clientes.Rows[0]["Endereco"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show($"Deseja realmente excluir o cliente {dataGridView2.CurrentRow.Cells["Nome"].Value}", " ", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                clientes.excluir_clientes(id);
+                dataGridView2.DataSource = null;
+                dataGridView2.DataSource = clientes.Mostrar_Clientes();
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            string cpf = "";
+            if (Documentos.ValidarCPF(maskedTextBox10.Text))
+            {
+                cpf = maskedTextBox10.Text;
+            }
+            else
+            {
+                MessageBox.Show("Esse CPF não pode existir");
+                return;
+            }
+            string nome = textBox18.Text, telefone = maskedTextBox9.Text, email = textBox19.Text, endereco = textBox20.Text, data_cadastro = Convert.ToString(DateTime.Now);
+            foreach (Control c in panel23.Controls)
+            {
+                if (string.IsNullOrWhiteSpace(c.Text))
+                {
+                    MessageBox.Show("nenhum campo pode estar vazio");
+                    return;
+                }
+            }
+            clientes.adicionarCliente(nome, cpf, telefone, email, endereco, data_cadastro);
+            dataGridView2.DataSource = null;
+            dataGridView2.DataSource = clientes.Mostrar_Clientes();
+            foreach (Control c in panel24.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = "";
+                }
+                if (c is MaskedTextBox)
+                {
+                    c.Text = "";
+                }
+            }
+
+            panel23.Visible = false;
+        }
+
+        private void label57_Click(object sender, EventArgs e)
+        {
+            foreach(Control c in panel23.Controls)
+            {
+                if(c is TextBox)
+                {
+                    c.Text = "";
+                }
+                if(c is MaskedTextBox)
+                {
+                    c.Text = "";
+                }
+            }
+            panel23.Visible = false;
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            string cpf = "";
+            if (Documentos.ValidarCPF(maskedTextBox11.Text))
+            {
+                cpf = maskedTextBox11.Text;
+            }
+            else
+            {
+                MessageBox.Show("Esse CPF não pode existir");
+                return;
+            }
+            string nome = textBox23.Text, telefone = maskedTextBox12.Text, email = textBox22.Text, endereco = textBox21.Text;
+            foreach (Control c in panel24.Controls)
+            {
+                if (c is MaskedTextBox || c is TextBox)
+                {
+                    if (string.IsNullOrEmpty(c.Text))
+                    {
+                        MessageBox.Show("Nenhum campo pode estar vazio");
+                        return;
+                    }
+                }
+            }
+            clientes.Atualizar_cliente(nome, cpf, telefone, email, endereco, id);
+            dataGridView2.DataSource = null;
+            dataGridView2.DataSource = clientes.Mostrar_Clientes();
+            foreach (Control c in panel24.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = "";
+                }
+                if (c is MaskedTextBox)
+                {
+                    c.Text = "";
+                }
+            }
+            panel24.Visible = false;
+        }
+
+        private void label58_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in panel24.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = "";
+                }
+                if (c is MaskedTextBox)
+                {
+                    c.Text = "";
+                }
+            }
+
+            panel24.Visible = false;
+        }
+
+        private void inicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            Historico historico = new Historico(id);
+            historico.Show();
+        }
+
+        private void dataGridView8_MouseClick(object sender, MouseEventArgs e)
+        {
+            button19.Visible = true;
+            id = Convert.ToInt32(dataGridView8.CurrentRow.Cells["ID_OS"].Value);
+        }
+
+        private void button18_Click(object sender, EventArgs e)
         {
 
         }
