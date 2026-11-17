@@ -353,7 +353,7 @@ namespace Oficina.Forms
             this.textBox5.Size = new System.Drawing.Size(76, 20);
             this.textBox5.TabIndex = 7;
             // 
-            // label10
+            // label9
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(220, 34);
@@ -429,7 +429,7 @@ namespace Oficina.Forms
             this.panel3.Size = new System.Drawing.Size(470, 163);
             this.panel3.TabIndex = 2;
             // 
-            // button5
+            // comboBox7
             // 
             this.button5.Location = new System.Drawing.Point(305, 54);
             this.button5.Name = "button5";
@@ -439,7 +439,7 @@ namespace Oficina.Forms
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // label10
             // 
             this.button6.Location = new System.Drawing.Point(305, 31);
             this.button6.Name = "button6";
@@ -476,7 +476,7 @@ namespace Oficina.Forms
             this.textBox6.Size = new System.Drawing.Size(76, 20);
             this.textBox6.TabIndex = 17;
             // 
-            // label15
+            // comboBox8
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(220, 31);
