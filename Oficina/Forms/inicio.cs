@@ -737,7 +737,8 @@ namespace Oficina
 
         private void button18_Click(object sender, EventArgs e)
         {
-
+            CadastroOS cadastro = new CadastroOS();
+            cadastro.Show();
         }
         //try
         //    {

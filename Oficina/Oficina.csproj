@@ -105,6 +105,9 @@
     <EmbeddedResource Include="Forms\CadastroOS.resx">
       <DependentUpon>CadastroOS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EdicaoOS.resx">
+      <DependentUpon>EdicaoOS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Historico.resx">
       <DependentUpon>Historico.cs</DependentUpon>
     </EmbeddedResource>
