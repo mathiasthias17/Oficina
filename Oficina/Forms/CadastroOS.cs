@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Sql;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oficina.Dados.MecanicaDBTableAdapters;
 
@@ -14,6 +7,7 @@ namespace Oficina.Forms
 {
     public partial class CadastroOS : Form
     {
+        #region Declaração das variaveis globais
         OrdensServicoTableAdapter OS = new OrdensServicoTableAdapter();
         OS_PecasTableAdapter pecas_OS = new OS_PecasTableAdapter();
         OS_ServicosTableAdapter servicos_OS = new OS_ServicosTableAdapter();
@@ -26,6 +20,7 @@ namespace Oficina.Forms
         EstoqueTableAdapter estoque = new EstoqueTableAdapter();
         DataTable servicos_dt, pecas_dt, clientes_dt, veiculos_dt, funcionarios_dt;
         double totao_servicos, total_pecas;
+        #endregion
         public CadastroOS()
         {
             InitializeComponent();
@@ -142,13 +137,15 @@ namespace Oficina.Forms
             decimal valor = 0;
             try
             {
-               id = OS.Novo_OS((int)comboBox2.SelectedValue, (int)comboBox3.SelectedValue, comboBox4.Text, textBox1.Text, textBox2.Text);
+               id = Convert.ToInt32(OS.Novo_OS((int)comboBox2.SelectedValue, (int)comboBox3.SelectedValue, comboBox4.Text, textBox1.Text, textBox2.Text));
                 foreach (DataGridViewRow linha in dataGridView1.Rows)
                 {
                     quantidade = Convert.ToInt32(Convert.ToString(linha.Cells["quantas"].Value));
                     valor = Convert.ToDecimal(Convert.ToString(linha.Cells["valor"].Value));
                     nome = Convert.ToString(linha.Cells["servico"].Value);
                     id_servico = (int)servico_tabela.pegar_id(nome);
+                    MessageBox.Show($"Salvando -> ID_OS: {id} | ID_Peca: {id_servico} | Qtd: {quantidade} | Valor: {valor}");
+
                     servicos_OS.Novo_OS(id, id_servico, quantidade, valor);
                 }
                 foreach (DataGridViewRow linha in dataGridView2.Rows)
@@ -157,7 +154,10 @@ namespace Oficina.Forms
                     valor = Convert.ToDecimal(Convert.ToString(linha.Cells["valor_peca"].Value));
                     nome = Convert.ToString(linha.Cells["peca"].Value);
                     id_servico = (int)pecas_tabela.pegar_id(nome);
-                    pecas_OS.Novo_OS(id, id_servico, quantidade, valor);
+                    MessageBox.Show($"Salvando -> ID_OS: {id} | ID_Peca: {id_servico} | Qtd: {quantidade} | Valor: {valor}");
+
+                    int linhasAfetadas = pecas_OS.Novo_OS(id, id_servico, quantidade, valor);
+                    MessageBox.Show("Linhas gravadas no banco: " + linhasAfetadas);
                 }
                 MessageBox.Show("Ordem de serviço registrada com sucesso!");
                 this.Hide();
@@ -166,6 +166,11 @@ namespace Oficina.Forms
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void CadastroOS_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
 
         private void button2_Click(object sender, EventArgs e)

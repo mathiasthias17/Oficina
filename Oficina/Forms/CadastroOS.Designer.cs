@@ -30,6 +30,7 @@ namespace Oficina.Forms
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -62,6 +63,10 @@ namespace Oficina.Forms
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.peca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor_peca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal_peca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -90,11 +95,6 @@ namespace Oficina.Forms
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.peca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor_peca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal_peca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label24 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -128,6 +128,16 @@ namespace Oficina.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(391, 335);
             this.panel1.TabIndex = 0;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label24.Location = new System.Drawing.Point(17, 226);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(90, 17);
+            this.label24.TabIndex = 12;
+            this.label24.Text = "Observações:";
             // 
             // label7
             // 
@@ -353,7 +363,7 @@ namespace Oficina.Forms
             this.textBox5.Size = new System.Drawing.Size(76, 20);
             this.textBox5.TabIndex = 7;
             // 
-            // label9
+            // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(220, 34);
@@ -429,7 +439,7 @@ namespace Oficina.Forms
             this.panel3.Size = new System.Drawing.Size(470, 163);
             this.panel3.TabIndex = 2;
             // 
-            // comboBox7
+            // button5
             // 
             this.button5.Location = new System.Drawing.Point(305, 54);
             this.button5.Name = "button5";
@@ -439,7 +449,7 @@ namespace Oficina.Forms
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // label10
+            // button6
             // 
             this.button6.Location = new System.Drawing.Point(305, 31);
             this.button6.Name = "button6";
@@ -468,6 +478,26 @@ namespace Oficina.Forms
             this.dataGridView2.Size = new System.Drawing.Size(453, 77);
             this.dataGridView2.TabIndex = 18;
             // 
+            // peca
+            // 
+            this.peca.HeaderText = "Peça";
+            this.peca.Name = "peca";
+            // 
+            // quantidade
+            // 
+            this.quantidade.HeaderText = "Quantidade";
+            this.quantidade.Name = "quantidade";
+            // 
+            // valor_peca
+            // 
+            this.valor_peca.HeaderText = "Valor";
+            this.valor_peca.Name = "valor_peca";
+            // 
+            // subtotal_peca
+            // 
+            this.subtotal_peca.HeaderText = "Subtotal";
+            this.subtotal_peca.Name = "subtotal_peca";
+            // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(223, 48);
@@ -476,7 +506,7 @@ namespace Oficina.Forms
             this.textBox6.Size = new System.Drawing.Size(76, 20);
             this.textBox6.TabIndex = 17;
             // 
-            // comboBox8
+            // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(220, 31);
@@ -750,36 +780,6 @@ namespace Oficina.Forms
             this.label19.Text = "X";
             this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
-            // peca
-            // 
-            this.peca.HeaderText = "Peça";
-            this.peca.Name = "peca";
-            // 
-            // quantidade
-            // 
-            this.quantidade.HeaderText = "Quantidade";
-            this.quantidade.Name = "quantidade";
-            // 
-            // valor_peca
-            // 
-            this.valor_peca.HeaderText = "Valor";
-            this.valor_peca.Name = "valor_peca";
-            // 
-            // subtotal_peca
-            // 
-            this.subtotal_peca.HeaderText = "Subtotal";
-            this.subtotal_peca.Name = "subtotal_peca";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label24.Location = new System.Drawing.Point(17, 226);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(90, 17);
-            this.label24.TabIndex = 12;
-            this.label24.Text = "Observações:";
-            // 
             // CadastroOS
             // 
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -792,6 +792,7 @@ namespace Oficina.Forms
             this.Name = "CadastroOS";
             this.ShowIcon = false;
             this.Text = "Cadastro de OS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CadastroOS_FormClosing);
             this.Load += new System.EventHandler(this.CadastroOS_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

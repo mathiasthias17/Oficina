@@ -30,6 +30,7 @@ namespace Oficina.Forms
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.valor_total = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@ namespace Oficina.Forms
             this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor_peca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotal_peca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_os_peca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -63,6 +65,7 @@ namespace Oficina.Forms
             this.quantas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_os_servico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -71,8 +74,9 @@ namespace Oficina.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -109,6 +113,7 @@ namespace Oficina.Forms
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.button9);
             this.panel4.Controls.Add(this.button7);
             this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.valor_total);
@@ -123,23 +128,35 @@ namespace Oficina.Forms
             this.panel4.Size = new System.Drawing.Size(867, 103);
             this.panel4.TabIndex = 16;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(654, 64);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(180, 29);
+            this.button9.TabIndex = 19;
+            this.button9.Text = "Finalizar ordem de serviço";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(654, 67);
+            this.button7.Location = new System.Drawing.Point(760, 34);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(172, 29);
+            this.button7.Size = new System.Drawing.Size(74, 29);
             this.button7.TabIndex = 18;
             this.button7.Text = "Cancelar";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(654, 34);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(172, 29);
+            this.button4.Size = new System.Drawing.Size(104, 29);
             this.button4.TabIndex = 17;
-            this.button4.Text = "Registrar Ordem";
+            this.button4.Text = "Salvar edições";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // valor_total
             // 
@@ -240,6 +257,7 @@ namespace Oficina.Forms
             this.button5.TabIndex = 20;
             this.button5.Text = "Remover";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -249,6 +267,7 @@ namespace Oficina.Forms
             this.button6.TabIndex = 19;
             this.button6.Text = "Adicionar";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // dataGridView2
             // 
@@ -262,7 +281,8 @@ namespace Oficina.Forms
             this.peca,
             this.quantidade,
             this.valor_peca,
-            this.subtotal_peca});
+            this.subtotal_peca,
+            this.id_os_peca});
             this.dataGridView2.Location = new System.Drawing.Point(8, 80);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
@@ -288,6 +308,12 @@ namespace Oficina.Forms
             // 
             this.subtotal_peca.HeaderText = "Subtotal";
             this.subtotal_peca.Name = "subtotal_peca";
+            // 
+            // id_os_peca
+            // 
+            this.id_os_peca.HeaderText = "Column1";
+            this.id_os_peca.Name = "id_os_peca";
+            this.id_os_peca.Visible = false;
             // 
             // textBox6
             // 
@@ -331,6 +357,7 @@ namespace Oficina.Forms
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(121, 21);
             this.comboBox6.TabIndex = 13;
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
             // label17
             // 
@@ -381,6 +408,7 @@ namespace Oficina.Forms
             this.button3.TabIndex = 11;
             this.button3.Text = "Novo serviço";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -390,6 +418,7 @@ namespace Oficina.Forms
             this.button2.TabIndex = 10;
             this.button2.Text = "Remover";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -399,6 +428,7 @@ namespace Oficina.Forms
             this.button1.TabIndex = 9;
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -412,7 +442,8 @@ namespace Oficina.Forms
             this.servico,
             this.quantas,
             this.valor,
-            this.subtotal});
+            this.subtotal,
+            this.id_os_servico});
             this.dataGridView1.Location = new System.Drawing.Point(8, 83);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -438,6 +469,12 @@ namespace Oficina.Forms
             // 
             this.subtotal.HeaderText = "Subtotal";
             this.subtotal.Name = "subtotal";
+            // 
+            // id_os_servico
+            // 
+            this.id_os_servico.HeaderText = "Column1";
+            this.id_os_servico.Name = "id_os_servico";
+            this.id_os_servico.Visible = false;
             // 
             // textBox5
             // 
@@ -481,6 +518,7 @@ namespace Oficina.Forms
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(121, 21);
             this.comboBox5.TabIndex = 3;
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -507,8 +545,9 @@ namespace Oficina.Forms
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label24);
             this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.comboBox4);
             this.panel1.Controls.Add(this.comboBox3);
@@ -525,6 +564,25 @@ namespace Oficina.Forms
             this.panel1.Size = new System.Drawing.Size(391, 335);
             this.panel1.TabIndex = 13;
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label24.Location = new System.Drawing.Point(17, 226);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(90, 17);
+            this.label24.TabIndex = 14;
+            this.label24.Text = "Observações:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(20, 244);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(348, 85);
+            this.textBox2.TabIndex = 13;
+            // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -536,15 +594,6 @@ namespace Oficina.Forms
             this.label7.TabIndex = 11;
             this.label7.Text = "Informações básicas";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(20, 226);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(348, 88);
-            this.textBox2.TabIndex = 10;
             // 
             // textBox1
             // 
@@ -583,6 +632,7 @@ namespace Oficina.Forms
             // comboBox2
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Enabled = false;
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(101, 86);
@@ -593,6 +643,7 @@ namespace Oficina.Forms
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Enabled = false;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(101, 52);
@@ -678,6 +729,7 @@ namespace Oficina.Forms
             this.button8.TabIndex = 9;
             this.button8.Text = "Adicionar";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // textBox8
             // 
@@ -761,14 +813,15 @@ namespace Oficina.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(890, 465);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel5);
             this.Name = "EdicaoOS";
             this.ShowIcon = false;
             this.Text = "Edição de OS";
+            this.Load += new System.EventHandler(this.EdicaoOS_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -803,10 +856,6 @@ namespace Oficina.Forms
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn peca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor_peca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal_peca;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
@@ -819,10 +868,6 @@ namespace Oficina.Forms
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn servico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
@@ -832,7 +877,6 @@ namespace Oficina.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox3;
@@ -854,5 +898,18 @@ namespace Oficina.Forms
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn peca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor_peca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal_peca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_os_peca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn servico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_os_servico;
     }
 }

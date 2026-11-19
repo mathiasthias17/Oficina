@@ -17,6 +17,10 @@
 
 namespace Oficina.Dados.MecanicaDBTableAdapters
 {
+    partial class FuncionariosTableAdapter
+    {
+    }
+
     partial class pecasTableAdapter
     {
     }

@@ -88,6 +88,12 @@
     <Compile Include="Forms\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Pagamento_OS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pagamento_OS.Designer.cs">
+      <DependentUpon>Pagamento_OS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\userControls\OS_Card.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pagamento_OS.resx">
+      <DependentUpon>Pagamento_OS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\userControls\OS_Card.resx">
       <DependentUpon>OS_Card.cs</DependentUpon>
