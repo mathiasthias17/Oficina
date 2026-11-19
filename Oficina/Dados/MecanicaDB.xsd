@@ -2150,46 +2150,6 @@ ORDER BY Data_Movimentacao DESC;</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="MecanicaDBConexao (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="pegar_os_pendentes" GetMethodModifier="Public" GetMethodName="pegar_os_pendentes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="pegar_os_pendentes" UserSourceName="pegar_os_pendentes">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT
-    V.ID_OS,
-    V.Cliente,
-    V.Placa,
-    OS.Status_OS,
-    V.Total_OS,
-
-    ISNULL(P.Total_Pago, 0) AS Total_Pago,
-
-    V.Total_OS - ISNULL(P.Total_Pago, 0) AS Valor_Pendente
-
- FROM VW_TotalOrdens V
-
-INNER JOIN OrdensServico OS
-    ON OS.ID_OS = V.ID_OS
-
-OUTER APPLY
-(
-    SELECT SUM(F.Valor) AS Total_Pago
-
-    FROM Financeiro F
-
-    WHERE
-        F.ID_OS = V.ID_OS
-        AND F.Tipo = 'ENTRADA'
-        AND F.Status_Pagamento = 'PAGO'
-
-) P
-
- WHERE
-    V.Total_OS &gt; ISNULL(P.Total_Pago, 0)
-
-ORDER BY V.ID_OS DESC;</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
               <DbSource ConnectionRef="MecanicaDBConexao (Settings)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="pegar_resumo_financeiro" GetMethodModifier="Public" GetMethodName="pegar_resumo_financeiro" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="pegar_resumo_financeiro" UserSourceName="pegar_resumo_financeiro">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -2250,6 +2210,37 @@ WHERE
                 </SelectCommand>
               </DbSource>
             </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OS_PagamentosTableAdapter" GeneratorDataComponentClassName="OS_PagamentosTableAdapter" Name="OS_Pagamentos" UserDataComponentName="OS_PagamentosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MecanicaDBConexao (Settings)" DbObjectName="MecanicaDB.dbo.VW_TotalOrdens" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="pegar_os_pendentes" GetMethodModifier="Public" GetMethodName="pegar_os_pendentes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="pegar_os_pendentes" UserSourceName="pegar_os_pendentes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT                      V.ID_OS, ISNULL(V.Cliente, '') AS Cliente, ISNULL(V.Placa, '') AS Placa, ISNULL(OS.Status_OS, '') AS Status_OS, ISNULL(V.Total_OS, 0) AS Total_OS, ISNULL(P.Total_Pago, 0) AS Total_Pago,
+                                       ISNULL(V.Total_OS, 0) - ISNULL(P.Total_Pago, 0) AS Valor_Pendente
+FROM                         VW_TotalOrdens AS V INNER JOIN
+                                      OrdensServico AS OS ON OS.ID_OS = V.ID_OS LEFT OUTER JOIN
+                                          (SELECT                      ID_OS, SUM(Valor) AS Total_Pago
+                                                FROM                         Financeiro
+                                                WHERE                       (Tipo = 'ENTRADA') AND (Status_Pagamento = 'PAGO')
+                                                GROUP BY              ID_OS) AS P ON P.ID_OS = V.ID_OS
+WHERE                       (ISNULL(V.Total_OS, 0) &gt; ISNULL(P.Total_Pago, 0))
+ORDER BY               V.ID_OS DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_OS" DataSetColumn="ID_OS" />
+              <Mapping SourceColumn="Cliente" DataSetColumn="Cliente" />
+              <Mapping SourceColumn="Placa" DataSetColumn="Placa" />
+              <Mapping SourceColumn="Status_OS" DataSetColumn="Status_OS" />
+              <Mapping SourceColumn="Total_OS" DataSetColumn="Total_OS" />
+              <Mapping SourceColumn="Total_Pago" DataSetColumn="Total_Pago" />
+              <Mapping SourceColumn="Valor_Pendente" DataSetColumn="Valor_Pendente" />
+            </Mappings>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources>
@@ -3164,6 +3155,37 @@ END CATCH
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OS_Pagamentos" msprop:Generator_TableClassName="OS_PagamentosDataTable" msprop:Generator_TableVarName="tableOS_Pagamentos" msprop:Generator_TablePropName="OS_Pagamentos" msprop:Generator_RowDeletingName="OS_PagamentosRowDeleting" msprop:Generator_RowChangingName="OS_PagamentosRowChanging" msprop:Generator_RowEvHandlerName="OS_PagamentosRowChangeEventHandler" msprop:Generator_RowDeletedName="OS_PagamentosRowDeleted" msprop:Generator_UserTableName="OS_Pagamentos" msprop:Generator_RowChangedName="OS_PagamentosRowChanged" msprop:Generator_RowEvArgName="OS_PagamentosRowChangeEvent" msprop:Generator_RowClassName="OS_PagamentosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_OS" msprop:Generator_ColumnVarNameInTable="columnID_OS" msprop:Generator_ColumnPropNameInRow="ID_OS" msprop:Generator_ColumnPropNameInTable="ID_OSColumn" msprop:Generator_UserColumnName="ID_OS" type="xs:int" />
+              <xs:element name="Cliente" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Placa" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPlaca" msprop:Generator_ColumnPropNameInRow="Placa" msprop:Generator_ColumnPropNameInTable="PlacaColumn" msprop:Generator_UserColumnName="Placa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status_OS" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStatus_OS" msprop:Generator_ColumnPropNameInRow="Status_OS" msprop:Generator_ColumnPropNameInTable="Status_OSColumn" msprop:Generator_UserColumnName="Status_OS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total_OS" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal_OS" msprop:Generator_ColumnPropNameInRow="Total_OS" msprop:Generator_ColumnPropNameInTable="Total_OSColumn" msprop:Generator_UserColumnName="Total_OS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total_Pago" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal_Pago" msprop:Generator_ColumnPropNameInRow="Total_Pago" msprop:Generator_ColumnPropNameInTable="Total_PagoColumn" msprop:Generator_UserColumnName="Total_Pago" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Valor_Pendente" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnValor_Pendente" msprop:Generator_ColumnPropNameInRow="Valor_Pendente" msprop:Generator_ColumnPropNameInTable="Valor_PendenteColumn" msprop:Generator_UserColumnName="Valor_Pendente" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

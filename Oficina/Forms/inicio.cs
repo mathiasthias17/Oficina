@@ -1216,5 +1216,13 @@ namespace Oficina
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            Pagamento_OS pagamento_OS = new Pagamento_OS();
+            pagamento_OS.ShowDialog();
+            dataGridView5.DataSource = null;
+            dataGridView5.DataSource = Financeiro_Consultas.filtrar_financeiro(null, null, null, null);
+        }
     }
 }

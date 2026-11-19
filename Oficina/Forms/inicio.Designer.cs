@@ -125,9 +125,51 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.button34 = new System.Windows.Forms.Button();
+            this.label89 = new System.Windows.Forms.Label();
+            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.label90 = new System.Windows.Forms.Label();
+            this.comboBox12 = new System.Windows.Forms.ComboBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
+            this.label92 = new System.Windows.Forms.Label();
+            this.textBox34 = new System.Windows.Forms.TextBox();
+            this.label93 = new System.Windows.Forms.Label();
+            this.comboBox13 = new System.Windows.Forms.ComboBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.comboBox14 = new System.Windows.Forms.ComboBox();
+            this.label95 = new System.Windows.Forms.Label();
+            this.panel33 = new System.Windows.Forms.Panel();
+            this.button33 = new System.Windows.Forms.Button();
+            this.label88 = new System.Windows.Forms.Label();
+            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.label87 = new System.Windows.Forms.Label();
+            this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.label86 = new System.Windows.Forms.Label();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.label85 = new System.Windows.Forms.Label();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.label84 = new System.Windows.Forms.Label();
+            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.label82 = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
+            this.button32 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
+            this.button30 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.panel31 = new System.Windows.Forms.Panel();
+            this.button28 = new System.Windows.Forms.Button();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.label81 = new System.Windows.Forms.Label();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.label80 = new System.Windows.Forms.Label();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.label79 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.financeiroBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -260,48 +302,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.dataGridView10 = new System.Windows.Forms.DataGridView();
             this.oSServicosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button30 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label79 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.label80 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.label81 = new System.Windows.Forms.Label();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button32 = new System.Windows.Forms.Button();
-            this.panel33 = new System.Windows.Forms.Panel();
-            this.label82 = new System.Windows.Forms.Label();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.label83 = new System.Windows.Forms.Label();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
-            this.label84 = new System.Windows.Forms.Label();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.label85 = new System.Windows.Forms.Label();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
-            this.label86 = new System.Windows.Forms.Label();
-            this.label87 = new System.Windows.Forms.Label();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.label88 = new System.Windows.Forms.Label();
-            this.button33 = new System.Windows.Forms.Button();
-            this.panel34 = new System.Windows.Forms.Panel();
-            this.button34 = new System.Windows.Forms.Button();
-            this.label89 = new System.Windows.Forms.Label();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.label90 = new System.Windows.Forms.Label();
-            this.comboBox12 = new System.Windows.Forms.ComboBox();
-            this.label91 = new System.Windows.Forms.Label();
-            this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
-            this.label92 = new System.Windows.Forms.Label();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.label93 = new System.Windows.Forms.Label();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
-            this.label94 = new System.Windows.Forms.Label();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
-            this.label95 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -330,6 +330,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.panel8.SuspendLayout();
+            this.panel34.SuspendLayout();
+            this.panel33.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -360,8 +362,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oSServicosBindingSource)).BeginInit();
-            this.panel33.SuspendLayout();
-            this.panel34.SuspendLayout();
             this.SuspendLayout();
             // 
             // peçasToolStripMenuItem
@@ -1396,6 +1396,340 @@
             this.panel8.TabIndex = 10;
             this.panel8.Visible = false;
             // 
+            // panel34
+            // 
+            this.panel34.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel34.Controls.Add(this.button34);
+            this.panel34.Controls.Add(this.label89);
+            this.panel34.Controls.Add(this.textBox33);
+            this.panel34.Controls.Add(this.label90);
+            this.panel34.Controls.Add(this.comboBox12);
+            this.panel34.Controls.Add(this.label91);
+            this.panel34.Controls.Add(this.dateTimePicker7);
+            this.panel34.Controls.Add(this.label92);
+            this.panel34.Controls.Add(this.textBox34);
+            this.panel34.Controls.Add(this.label93);
+            this.panel34.Controls.Add(this.comboBox13);
+            this.panel34.Controls.Add(this.label94);
+            this.panel34.Controls.Add(this.comboBox14);
+            this.panel34.Controls.Add(this.label95);
+            this.panel34.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel34.Location = new System.Drawing.Point(225, 114);
+            this.panel34.Name = "panel34";
+            this.panel34.Size = new System.Drawing.Size(284, 236);
+            this.panel34.TabIndex = 14;
+            this.panel34.Visible = false;
+            // 
+            // button34
+            // 
+            this.button34.Location = new System.Drawing.Point(10, 197);
+            this.button34.Name = "button34";
+            this.button34.Size = new System.Drawing.Size(263, 32);
+            this.button34.TabIndex = 13;
+            this.button34.Text = "Salvar edição";
+            this.button34.UseVisualStyleBackColor = true;
+            this.button34.Click += new System.EventHandler(this.button34_Click);
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label89.Location = new System.Drawing.Point(262, 1);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(20, 20);
+            this.label89.TabIndex = 12;
+            this.label89.Text = "X";
+            this.label89.Click += new System.EventHandler(this.label89_Click);
+            // 
+            // textBox33
+            // 
+            this.textBox33.Enabled = false;
+            this.textBox33.Location = new System.Drawing.Point(151, 81);
+            this.textBox33.Multiline = true;
+            this.textBox33.Name = "textBox33";
+            this.textBox33.Size = new System.Drawing.Size(121, 110);
+            this.textBox33.TabIndex = 11;
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(148, 65);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(58, 13);
+            this.label90.TabIndex = 10;
+            this.label90.Text = "Descrição:";
+            // 
+            // comboBox12
+            // 
+            this.comboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox12.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox12.FormattingEnabled = true;
+            this.comboBox12.Items.AddRange(new object[] {
+            "PAGO",
+            "PENDENTE"});
+            this.comboBox12.Location = new System.Drawing.Point(151, 36);
+            this.comboBox12.Name = "comboBox12";
+            this.comboBox12.Size = new System.Drawing.Size(121, 21);
+            this.comboBox12.TabIndex = 9;
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(148, 20);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(40, 13);
+            this.label91.TabIndex = 8;
+            this.label91.Text = "Status:";
+            // 
+            // dateTimePicker7
+            // 
+            this.dateTimePicker7.CustomFormat = "dd/MM/yy HH:mm";
+            this.dateTimePicker7.Enabled = false;
+            this.dateTimePicker7.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker7.Location = new System.Drawing.Point(11, 171);
+            this.dateTimePicker7.Name = "dateTimePicker7";
+            this.dateTimePicker7.Size = new System.Drawing.Size(121, 20);
+            this.dateTimePicker7.TabIndex = 7;
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(8, 154);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(99, 13);
+            this.label92.TabIndex = 6;
+            this.label92.Text = "Data de realização:";
+            // 
+            // textBox34
+            // 
+            this.textBox34.Enabled = false;
+            this.textBox34.Location = new System.Drawing.Point(11, 126);
+            this.textBox34.Name = "textBox34";
+            this.textBox34.Size = new System.Drawing.Size(121, 20);
+            this.textBox34.TabIndex = 5;
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(8, 110);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(34, 13);
+            this.label93.TabIndex = 4;
+            this.label93.Text = "Valor:";
+            // 
+            // comboBox13
+            // 
+            this.comboBox13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox13.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox13.FormattingEnabled = true;
+            this.comboBox13.Items.AddRange(new object[] {
+            "PIX",
+            "CARTAO",
+            "DINHEIRO"});
+            this.comboBox13.Location = new System.Drawing.Point(11, 81);
+            this.comboBox13.Name = "comboBox13";
+            this.comboBox13.Size = new System.Drawing.Size(121, 21);
+            this.comboBox13.TabIndex = 3;
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(8, 65);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(110, 13);
+            this.label94.TabIndex = 2;
+            this.label94.Text = "Forma de pagamento:";
+            // 
+            // comboBox14
+            // 
+            this.comboBox14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox14.Enabled = false;
+            this.comboBox14.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox14.FormattingEnabled = true;
+            this.comboBox14.Items.AddRange(new object[] {
+            "ENTRADA",
+            "SAIDA"});
+            this.comboBox14.Location = new System.Drawing.Point(11, 36);
+            this.comboBox14.Name = "comboBox14";
+            this.comboBox14.Size = new System.Drawing.Size(121, 21);
+            this.comboBox14.TabIndex = 1;
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(8, 20);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(31, 13);
+            this.label95.TabIndex = 0;
+            this.label95.Text = "Tipo:";
+            // 
+            // panel33
+            // 
+            this.panel33.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel33.Controls.Add(this.button33);
+            this.panel33.Controls.Add(this.label88);
+            this.panel33.Controls.Add(this.textBox32);
+            this.panel33.Controls.Add(this.label87);
+            this.panel33.Controls.Add(this.comboBox11);
+            this.panel33.Controls.Add(this.label86);
+            this.panel33.Controls.Add(this.dateTimePicker6);
+            this.panel33.Controls.Add(this.label85);
+            this.panel33.Controls.Add(this.textBox31);
+            this.panel33.Controls.Add(this.label84);
+            this.panel33.Controls.Add(this.comboBox10);
+            this.panel33.Controls.Add(this.label83);
+            this.panel33.Controls.Add(this.comboBox9);
+            this.panel33.Controls.Add(this.label82);
+            this.panel33.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel33.Location = new System.Drawing.Point(225, 114);
+            this.panel33.Name = "panel33";
+            this.panel33.Size = new System.Drawing.Size(284, 236);
+            this.panel33.TabIndex = 7;
+            this.panel33.Visible = false;
+            // 
+            // button33
+            // 
+            this.button33.Location = new System.Drawing.Point(10, 197);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(263, 32);
+            this.button33.TabIndex = 13;
+            this.button33.Text = "Cadastrar movimentação";
+            this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label88.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label88.Location = new System.Drawing.Point(262, 1);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(20, 20);
+            this.label88.TabIndex = 12;
+            this.label88.Text = "X";
+            this.label88.Click += new System.EventHandler(this.label88_Click);
+            // 
+            // textBox32
+            // 
+            this.textBox32.Location = new System.Drawing.Point(151, 81);
+            this.textBox32.Multiline = true;
+            this.textBox32.Name = "textBox32";
+            this.textBox32.Size = new System.Drawing.Size(121, 110);
+            this.textBox32.TabIndex = 11;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(148, 65);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(58, 13);
+            this.label87.TabIndex = 10;
+            this.label87.Text = "Descrição:";
+            // 
+            // comboBox11
+            // 
+            this.comboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox11.FormattingEnabled = true;
+            this.comboBox11.Items.AddRange(new object[] {
+            "PAGO",
+            "PENDENTE"});
+            this.comboBox11.Location = new System.Drawing.Point(151, 36);
+            this.comboBox11.Name = "comboBox11";
+            this.comboBox11.Size = new System.Drawing.Size(121, 21);
+            this.comboBox11.TabIndex = 9;
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(148, 20);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(40, 13);
+            this.label86.TabIndex = 8;
+            this.label86.Text = "Status:";
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.CustomFormat = "dd/MM/yy HH:mm";
+            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker6.Location = new System.Drawing.Point(11, 171);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(121, 20);
+            this.dateTimePicker6.TabIndex = 7;
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(8, 154);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(99, 13);
+            this.label85.TabIndex = 6;
+            this.label85.Text = "Data de realização:";
+            // 
+            // textBox31
+            // 
+            this.textBox31.Location = new System.Drawing.Point(11, 126);
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(121, 20);
+            this.textBox31.TabIndex = 5;
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(8, 110);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(34, 13);
+            this.label84.TabIndex = 4;
+            this.label84.Text = "Valor:";
+            // 
+            // comboBox10
+            // 
+            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox10.FormattingEnabled = true;
+            this.comboBox10.Items.AddRange(new object[] {
+            "PIX",
+            "CARTAO",
+            "DINHEIRO"});
+            this.comboBox10.Location = new System.Drawing.Point(11, 81);
+            this.comboBox10.Name = "comboBox10";
+            this.comboBox10.Size = new System.Drawing.Size(121, 21);
+            this.comboBox10.TabIndex = 3;
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(8, 65);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(110, 13);
+            this.label83.TabIndex = 2;
+            this.label83.Text = "Forma de pagamento:";
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Items.AddRange(new object[] {
+            "ENTRADA",
+            "SAIDA"});
+            this.comboBox9.Location = new System.Drawing.Point(11, 36);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(121, 21);
+            this.comboBox9.TabIndex = 1;
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(8, 20);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(31, 13);
+            this.label82.TabIndex = 0;
+            this.label82.Text = "Tipo:";
+            // 
             // panel32
             // 
             this.panel32.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -1409,6 +1743,37 @@
             this.panel32.Name = "panel32";
             this.panel32.Size = new System.Drawing.Size(672, 40);
             this.panel32.TabIndex = 6;
+            // 
+            // button32
+            // 
+            this.button32.Location = new System.Drawing.Point(378, 3);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(75, 32);
+            this.button32.TabIndex = 3;
+            this.button32.Text = "Limpar filtro";
+            this.button32.UseVisualStyleBackColor = true;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
+            // 
+            // button31
+            // 
+            this.button31.Location = new System.Drawing.Point(270, 3);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(102, 32);
+            this.button31.TabIndex = 2;
+            this.button31.Text = "Pagar uma OS";
+            this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
+            // 
+            // button30
+            // 
+            this.button30.Location = new System.Drawing.Point(146, 3);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(122, 32);
+            this.button30.TabIndex = 1;
+            this.button30.Text = "Editar movimentação";
+            this.button30.UseVisualStyleBackColor = true;
+            this.button30.Visible = false;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
             // 
             // button29
             // 
@@ -1438,6 +1803,94 @@
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(672, 32);
             this.panel31.TabIndex = 5;
+            // 
+            // button28
+            // 
+            this.button28.Location = new System.Drawing.Point(600, 2);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(63, 26);
+            this.button28.TabIndex = 8;
+            this.button28.Text = "Filtrar";
+            this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
+            // 
+            // dateTimePicker5
+            // 
+            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker5.Location = new System.Drawing.Point(513, 6);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(81, 20);
+            this.dateTimePicker5.TabIndex = 7;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(422, 9);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(90, 13);
+            this.label81.TabIndex = 6;
+            this.label81.Text = "Inicio do período:";
+            // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker4.Location = new System.Drawing.Point(338, 6);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(81, 20);
+            this.dateTimePicker4.TabIndex = 5;
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(246, 9);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(90, 13);
+            this.label80.TabIndex = 4;
+            this.label80.Text = "Inicio do período:";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Items.AddRange(new object[] {
+            "PAGO",
+            "PENDENTE"});
+            this.comboBox8.Location = new System.Drawing.Point(153, 5);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(89, 21);
+            this.comboBox8.TabIndex = 3;
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(110, 8);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(40, 13);
+            this.label79.TabIndex = 2;
+            this.label79.Text = "Status:";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(0, 9);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(31, 13);
+            this.label78.TabIndex = 1;
+            this.label78.Text = "Tipo:";
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Items.AddRange(new object[] {
+            "ENTRADA",
+            "SAIDA"});
+            this.comboBox7.Location = new System.Drawing.Point(33, 5);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(73, 21);
+            this.comboBox7.TabIndex = 0;
             // 
             // dataGridView5
             // 
@@ -2936,458 +3389,6 @@
             // 
             this.oSServicosBindingSource.DataMember = "OS_Servicos";
             // 
-            // button30
-            // 
-            this.button30.Location = new System.Drawing.Point(146, 3);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(122, 32);
-            this.button30.TabIndex = 1;
-            this.button30.Text = "Editar movimentação";
-            this.button30.UseVisualStyleBackColor = true;
-            this.button30.Visible = false;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
-            // 
-            // button31
-            // 
-            this.button31.Location = new System.Drawing.Point(270, 3);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(102, 32);
-            this.button31.TabIndex = 2;
-            this.button31.Text = "Pagar uma OS";
-            this.button31.UseVisualStyleBackColor = true;
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
-            "ENTRADA",
-            "SAIDA"});
-            this.comboBox7.Location = new System.Drawing.Point(33, 5);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(73, 21);
-            this.comboBox7.TabIndex = 0;
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(0, 9);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(31, 13);
-            this.label78.TabIndex = 1;
-            this.label78.Text = "Tipo:";
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(110, 8);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(40, 13);
-            this.label79.TabIndex = 2;
-            this.label79.Text = "Status:";
-            // 
-            // comboBox8
-            // 
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
-            "PAGO",
-            "PENDENTE"});
-            this.comboBox8.Location = new System.Drawing.Point(153, 5);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(89, 21);
-            this.comboBox8.TabIndex = 3;
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(246, 9);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(90, 13);
-            this.label80.TabIndex = 4;
-            this.label80.Text = "Inicio do período:";
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(338, 6);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(81, 20);
-            this.dateTimePicker4.TabIndex = 5;
-            // 
-            // dateTimePicker5
-            // 
-            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker5.Location = new System.Drawing.Point(513, 6);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(81, 20);
-            this.dateTimePicker5.TabIndex = 7;
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(422, 9);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(90, 13);
-            this.label81.TabIndex = 6;
-            this.label81.Text = "Inicio do período:";
-            // 
-            // button28
-            // 
-            this.button28.Location = new System.Drawing.Point(600, 2);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(63, 26);
-            this.button28.TabIndex = 8;
-            this.button28.Text = "Filtrar";
-            this.button28.UseVisualStyleBackColor = true;
-            this.button28.Click += new System.EventHandler(this.button28_Click);
-            // 
-            // button32
-            // 
-            this.button32.Location = new System.Drawing.Point(378, 3);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(75, 32);
-            this.button32.TabIndex = 3;
-            this.button32.Text = "Limpar filtro";
-            this.button32.UseVisualStyleBackColor = true;
-            this.button32.Click += new System.EventHandler(this.button32_Click);
-            // 
-            // panel33
-            // 
-            this.panel33.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel33.Controls.Add(this.button33);
-            this.panel33.Controls.Add(this.label88);
-            this.panel33.Controls.Add(this.textBox32);
-            this.panel33.Controls.Add(this.label87);
-            this.panel33.Controls.Add(this.comboBox11);
-            this.panel33.Controls.Add(this.label86);
-            this.panel33.Controls.Add(this.dateTimePicker6);
-            this.panel33.Controls.Add(this.label85);
-            this.panel33.Controls.Add(this.textBox31);
-            this.panel33.Controls.Add(this.label84);
-            this.panel33.Controls.Add(this.comboBox10);
-            this.panel33.Controls.Add(this.label83);
-            this.panel33.Controls.Add(this.comboBox9);
-            this.panel33.Controls.Add(this.label82);
-            this.panel33.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel33.Location = new System.Drawing.Point(225, 114);
-            this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(284, 236);
-            this.panel33.TabIndex = 7;
-            this.panel33.Visible = false;
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(8, 20);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(31, 13);
-            this.label82.TabIndex = 0;
-            this.label82.Text = "Tipo:";
-            // 
-            // comboBox9
-            // 
-            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Items.AddRange(new object[] {
-            "ENTRADA",
-            "SAIDA"});
-            this.comboBox9.Location = new System.Drawing.Point(11, 36);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(121, 21);
-            this.comboBox9.TabIndex = 1;
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(8, 65);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(110, 13);
-            this.label83.TabIndex = 2;
-            this.label83.Text = "Forma de pagamento:";
-            // 
-            // comboBox10
-            // 
-            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Items.AddRange(new object[] {
-            "PIX",
-            "CARTAO",
-            "DINHEIRO"});
-            this.comboBox10.Location = new System.Drawing.Point(11, 81);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(121, 21);
-            this.comboBox10.TabIndex = 3;
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(8, 110);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(34, 13);
-            this.label84.TabIndex = 4;
-            this.label84.Text = "Valor:";
-            // 
-            // textBox31
-            // 
-            this.textBox31.Location = new System.Drawing.Point(11, 126);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(121, 20);
-            this.textBox31.TabIndex = 5;
-            // 
-            // label85
-            // 
-            this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(8, 154);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(99, 13);
-            this.label85.TabIndex = 6;
-            this.label85.Text = "Data de realização:";
-            // 
-            // dateTimePicker6
-            // 
-            this.dateTimePicker6.CustomFormat = "dd/MM/yy HH:mm";
-            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker6.Location = new System.Drawing.Point(11, 171);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(121, 20);
-            this.dateTimePicker6.TabIndex = 7;
-            // 
-            // comboBox11
-            // 
-            this.comboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Items.AddRange(new object[] {
-            "PAGO",
-            "PENDENTE"});
-            this.comboBox11.Location = new System.Drawing.Point(151, 36);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(121, 21);
-            this.comboBox11.TabIndex = 9;
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(148, 20);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(40, 13);
-            this.label86.TabIndex = 8;
-            this.label86.Text = "Status:";
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.Location = new System.Drawing.Point(148, 65);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(58, 13);
-            this.label87.TabIndex = 10;
-            this.label87.Text = "Descrição:";
-            // 
-            // textBox32
-            // 
-            this.textBox32.Location = new System.Drawing.Point(151, 81);
-            this.textBox32.Multiline = true;
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(121, 110);
-            this.textBox32.TabIndex = 11;
-            // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label88.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label88.Location = new System.Drawing.Point(262, 1);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(20, 20);
-            this.label88.TabIndex = 12;
-            this.label88.Text = "X";
-            this.label88.Click += new System.EventHandler(this.label88_Click);
-            // 
-            // button33
-            // 
-            this.button33.Location = new System.Drawing.Point(10, 197);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(263, 32);
-            this.button33.TabIndex = 13;
-            this.button33.Text = "Cadastrar movimentação";
-            this.button33.UseVisualStyleBackColor = true;
-            this.button33.Click += new System.EventHandler(this.button33_Click);
-            // 
-            // panel34
-            // 
-            this.panel34.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel34.Controls.Add(this.button34);
-            this.panel34.Controls.Add(this.label89);
-            this.panel34.Controls.Add(this.textBox33);
-            this.panel34.Controls.Add(this.label90);
-            this.panel34.Controls.Add(this.comboBox12);
-            this.panel34.Controls.Add(this.label91);
-            this.panel34.Controls.Add(this.dateTimePicker7);
-            this.panel34.Controls.Add(this.label92);
-            this.panel34.Controls.Add(this.textBox34);
-            this.panel34.Controls.Add(this.label93);
-            this.panel34.Controls.Add(this.comboBox13);
-            this.panel34.Controls.Add(this.label94);
-            this.panel34.Controls.Add(this.comboBox14);
-            this.panel34.Controls.Add(this.label95);
-            this.panel34.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel34.Location = new System.Drawing.Point(225, 114);
-            this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(284, 236);
-            this.panel34.TabIndex = 14;
-            this.panel34.Visible = false;
-            // 
-            // button34
-            // 
-            this.button34.Location = new System.Drawing.Point(10, 197);
-            this.button34.Name = "button34";
-            this.button34.Size = new System.Drawing.Size(263, 32);
-            this.button34.TabIndex = 13;
-            this.button34.Text = "Salvar edição";
-            this.button34.UseVisualStyleBackColor = true;
-            this.button34.Click += new System.EventHandler(this.button34_Click);
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label89.Location = new System.Drawing.Point(262, 1);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(20, 20);
-            this.label89.TabIndex = 12;
-            this.label89.Text = "X";
-            this.label89.Click += new System.EventHandler(this.label89_Click);
-            // 
-            // textBox33
-            // 
-            this.textBox33.Enabled = false;
-            this.textBox33.Location = new System.Drawing.Point(151, 81);
-            this.textBox33.Multiline = true;
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(121, 110);
-            this.textBox33.TabIndex = 11;
-            // 
-            // label90
-            // 
-            this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(148, 65);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(58, 13);
-            this.label90.TabIndex = 10;
-            this.label90.Text = "Descrição:";
-            // 
-            // comboBox12
-            // 
-            this.comboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox12.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Items.AddRange(new object[] {
-            "PAGO",
-            "PENDENTE"});
-            this.comboBox12.Location = new System.Drawing.Point(151, 36);
-            this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(121, 21);
-            this.comboBox12.TabIndex = 9;
-            // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(148, 20);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(40, 13);
-            this.label91.TabIndex = 8;
-            this.label91.Text = "Status:";
-            // 
-            // dateTimePicker7
-            // 
-            this.dateTimePicker7.CustomFormat = "dd/MM/yy HH:mm";
-            this.dateTimePicker7.Enabled = false;
-            this.dateTimePicker7.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker7.Location = new System.Drawing.Point(11, 171);
-            this.dateTimePicker7.Name = "dateTimePicker7";
-            this.dateTimePicker7.Size = new System.Drawing.Size(121, 20);
-            this.dateTimePicker7.TabIndex = 7;
-            // 
-            // label92
-            // 
-            this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(8, 154);
-            this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(99, 13);
-            this.label92.TabIndex = 6;
-            this.label92.Text = "Data de realização:";
-            // 
-            // textBox34
-            // 
-            this.textBox34.Enabled = false;
-            this.textBox34.Location = new System.Drawing.Point(11, 126);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(121, 20);
-            this.textBox34.TabIndex = 5;
-            // 
-            // label93
-            // 
-            this.label93.AutoSize = true;
-            this.label93.Location = new System.Drawing.Point(8, 110);
-            this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(34, 13);
-            this.label93.TabIndex = 4;
-            this.label93.Text = "Valor:";
-            // 
-            // comboBox13
-            // 
-            this.comboBox13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox13.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Items.AddRange(new object[] {
-            "PIX",
-            "CARTAO",
-            "DINHEIRO"});
-            this.comboBox13.Location = new System.Drawing.Point(11, 81);
-            this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(121, 21);
-            this.comboBox13.TabIndex = 3;
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.Location = new System.Drawing.Point(8, 65);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(110, 13);
-            this.label94.TabIndex = 2;
-            this.label94.Text = "Forma de pagamento:";
-            // 
-            // comboBox14
-            // 
-            this.comboBox14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox14.Enabled = false;
-            this.comboBox14.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Items.AddRange(new object[] {
-            "ENTRADA",
-            "SAIDA"});
-            this.comboBox14.Location = new System.Drawing.Point(11, 36);
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(121, 21);
-            this.comboBox14.TabIndex = 1;
-            // 
-            // label95
-            // 
-            this.label95.AutoSize = true;
-            this.label95.Location = new System.Drawing.Point(8, 20);
-            this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(31, 13);
-            this.label95.TabIndex = 0;
-            this.label95.Text = "Tipo:";
-            // 
             // inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3461,6 +3462,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.panel8.ResumeLayout(false);
+            this.panel34.ResumeLayout(false);
+            this.panel34.PerformLayout();
+            this.panel33.ResumeLayout(false);
+            this.panel33.PerformLayout();
             this.panel32.ResumeLayout(false);
             this.panel31.ResumeLayout(false);
             this.panel31.PerformLayout();
@@ -3501,10 +3506,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oSServicosBindingSource)).EndInit();
-            this.panel33.ResumeLayout(false);
-            this.panel33.PerformLayout();
-            this.panel34.ResumeLayout(false);
-            this.panel34.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
