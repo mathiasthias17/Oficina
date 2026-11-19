@@ -128,7 +128,7 @@ namespace Oficina
 
         private void reposiçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panel7.Visible = true;
+
         }
 
         private void finanaceiroToolStripMenuItem_Click(object sender, EventArgs e)
@@ -328,11 +328,13 @@ namespace Oficina
                 panel19.Enabled = true;
             }
         }
-
+        Clientes1TableAdapter clientes_filtro_pegar = new Clientes1TableAdapter();
+        DataTable cliente_dt;
         private void inicio_Load(object sender, EventArgs e)
         {
             try
             {
+                cliente_dt = clientes_filtro_pegar.informacoes_OS();
                 panel6.Visible = true;
                 panel6.Dock = DockStyle.Fill;
                 radioButton2.Checked = true;
@@ -340,14 +342,31 @@ namespace Oficina
 
                 comboBox1.DataSource = fornecedor;
                 comboBox1.DisplayMember = fornecedor.Columns[1].ColumnName;
+                comboBox15.DataSource = fornecedor;
+                comboBox15.DisplayMember = fornecedor.Columns[1].ColumnName;
+
+                AutoCompleteStringCollection clientes_nome = new AutoCompleteStringCollection();
+                var clientes_dt = clientes_filtro.pegar_nome();
+                foreach (DataRow linha in clientes_dt.Rows)
+                {
+                    if (linha[0] != DBNull.Value)
+                    {
+                        clientes_nome.Add(linha[0].ToString());
+                    }
+                }
+                textBox25.AutoCompleteMode = AutoCompleteMode.None;
+                textBox25.AutoCompleteCustomSource = clientes_nome;
+                textBox25.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                textBox25.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
                 if (comboBox4.SelectedIndex == -1) textBox25.Enabled = false;
                 if (comboBox5.SelectedIndex == -1) textBox26.Enabled = false;
                 if (comboBox6.SelectedIndex == -1) textBox27.Enabled = false;
-                //if (comboBox7.SelectedIndex == -1) textBox28.Enabled = false;
-                //if (comboBox8.SelectedIndex == -1) textBox29.Enabled = false;
-                //if (comboBox9.SelectedIndex == -1) textBox30.Enabled = false;
-                //if (comboBox10.SelectedIndex == -1) textBox31.Enabled = false;
+                if (comboBox16.SelectedIndex == -1) textBox39.Enabled = false;
+
+                comboBox17.DisplayMember = "Nome";
+                comboBox17.ValueMember = "ID_Cliente";
+                comboBox17.DataSource = clientes_dt;
             }
             catch (Exception ex)
             {
@@ -1223,6 +1242,223 @@ namespace Oficina
             pagamento_OS.ShowDialog();
             dataGridView5.DataSource = null;
             dataGridView5.DataSource = Financeiro_Consultas.filtrar_financeiro(null, null, null, null);
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            panel7.Visible = true;
+        }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            panel36.Visible = true;
+            DataTable dt = pecas.pegar_peca(id);
+            if (dt.Rows.Count > 0)
+            {
+                textBox35.Text = dt.Rows[0]["Nome"].ToString();
+                comboBox15.SelectedIndex = Convert.ToInt32(dt.Rows[0]["ID_Fornecedor"].ToString());
+                textBox38.Text = dt.Rows[0]["Codigo"].ToString();
+                textBox37.Text = dt.Rows[0]["Preco_Custo"].ToString();
+                textBox36.Text = dt.Rows[0]["Preco_Venda"].ToString();
+            }
+
+        }
+
+        private void label100_Click(object sender, EventArgs e)
+        {
+            panel36.Visible = false;
+            foreach (Control c in panel36.Controls)
+            {
+                if (c is TextBox || c is ComboBox) c.Text = "";
+            }
+        }
+
+        private void dataGridView4_MouseClick(object sender, MouseEventArgs e)
+        {
+            id = Convert.ToInt32(dataGridView4.CurrentRow.Cells["ID_Peca"].Value);
+            button36.Visible = true;
+        }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal preco_custo = Convert.ToDecimal(textBox37.Text);
+                decimal preco_venda = Convert.ToDecimal(textBox36.Text);
+                pecas.editar_peca(preco_custo, preco_venda, id); panel36.Visible = false;
+                foreach (Control c in panel36.Controls)
+                {
+                    if (c is TextBox || c is ComboBox) c.Text = "";
+                }
+                dataGridView4.DataSource = null;
+                dataGridView4.DataSource = pecas.Mostrar_Pecas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(textBox24.Text))
+                {
+                    dataGridView2.DataSource = null;
+                    dataGridView2.DataSource = clientes.clientes_filtro(textBox24.Text);
+                }
+                else
+                {
+                    dataGridView2.DataSource = null;
+                    dataGridView2.DataSource = clientes.Mostrar_Clientes();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        Veiculos2TableAdapter Dono = new Veiculos2TableAdapter();
+        Veiculos3TableAdapter Marca = new Veiculos3TableAdapter();
+        Veiculos4TableAdapter modelo = new Veiculos4TableAdapter();
+
+        private void comboBox16_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox39.Clear();
+
+            if (comboBox16.SelectedIndex == 0)
+            {
+                textBox39.Enabled = true;
+                AutoCompleteStringCollection funcionarios_nome = new AutoCompleteStringCollection();
+                var funcionarios_dt = Dono.pegar_dono();
+                foreach (DataRow linha in funcionarios_dt.Rows)
+                {
+                    if (linha[0] != DBNull.Value)
+                    {
+                        funcionarios_nome.Add(linha[0].ToString());
+                    }
+                }
+                textBox39.AutoCompleteMode = AutoCompleteMode.None;
+                textBox39.AutoCompleteCustomSource = funcionarios_nome;
+                textBox39.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                textBox39.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+            }
+            else if (comboBox16.SelectedIndex == 1)
+            {
+                textBox39.Enabled = true;
+                AutoCompleteStringCollection clientes_nome = new AutoCompleteStringCollection();
+                var funcionarios_dt = Marca.pegar_marca(); ;
+                foreach (DataRow linha in funcionarios_dt.Rows)
+                {
+                    if (linha[0] != DBNull.Value)
+                    {
+                        clientes_nome.Add(linha[0].ToString());
+                    }
+                }
+                textBox39.AutoCompleteMode = AutoCompleteMode.None;
+                textBox39.AutoCompleteCustomSource = clientes_nome;
+                textBox39.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                textBox39.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            }
+            else if (comboBox16.SelectedIndex == 2)
+            {
+                textBox39.Enabled = true;
+                AutoCompleteStringCollection clientes_nome = new AutoCompleteStringCollection();
+                var funcionarios_dt = modelo.pegar_modelo();
+                foreach (DataRow linha in funcionarios_dt.Rows)
+                {
+                    if (linha[0] != DBNull.Value)
+                    {
+                        clientes_nome.Add(linha[0].ToString());
+                    }
+                }
+                textBox39.AutoCompleteMode = AutoCompleteMode.None;
+                textBox39.AutoCompleteCustomSource = clientes_nome;
+                textBox39.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                textBox39.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            }
+            else
+            {
+                textBox29.Enabled = false;
+            }
+        }
+
+        private void button40_Click(object sender, EventArgs e)
+        {
+            if (comboBox16.SelectedIndex == 0 && textBox39.Text != null)
+            {
+                dataGridView11.DataSource = null;
+                dataGridView11.DataSource = veiculos.veiculos_filtro(textBox39.Text, null, null);
+            }
+            else if (comboBox16.SelectedIndex == 1 && textBox39.Text != null)
+            {
+                dataGridView11.DataSource = null;
+                dataGridView11.DataSource = veiculos.veiculos_filtro(null, textBox39.Text, null);
+            }
+            else if (comboBox16.SelectedIndex == 2)
+            {
+                dataGridView11.DataSource = null;
+                dataGridView11.DataSource = veiculos.veiculos_filtro(null, null, textBox39.Text);
+            }
+            else if (comboBox16.SelectedIndex == 3)
+            {
+                dataGridView11.DataSource = null;
+                dataGridView11.DataSource = veiculos.Mostrar_Veiculos();
+            }
+            else
+            {
+                MessageBox.Show("Há informações faltando para filtrar");
+            }
+        }
+
+        private void label111_Click(object sender, EventArgs e)
+        {
+            panel40.Visible = false;
+            foreach (Control c in panel40.Controls)
+            {
+                if (c is TextBox || c is ComboBox) c.Text = "";
+            }
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            panel40.Visible = true;
+        }
+
+        private void button41_Click(object sender, EventArgs e)
+        {
+            int dono_id = 0;
+            string dono = "", placa = "", marca = "", modelo = "", ano = "", cor = "";
+            dono = comboBox17.Text;
+            placa = textBox40.Text;
+            marca = textBox41.Text;
+            modelo = textBox42.Text;
+            ano = textBox43.Text;
+            cor = textBox44.Text;
+            dono_id = Convert.ToInt32(comboBox17.SelectedValue);
+            try
+            {
+                veiculos.adicionar_veiculo(dono_id, dono, placa, marca, modelo,Convert.ToInt32(ano), cor);
+                dataGridView11.DataSource = null;
+                dataGridView11.DataSource = veiculos.Mostrar_Veiculos();
+                panel40.Visible = false;
+                foreach (Control c in panel40.Controls)
+                {
+                    if (c is TextBox || c is ComboBox) c.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
