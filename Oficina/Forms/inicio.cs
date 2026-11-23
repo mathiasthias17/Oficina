@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using MeusMetodos;
 using System.Windows.Forms;
 using Oficina.Dados.MecanicaDBTableAdapters;
 
@@ -256,7 +255,7 @@ namespace Oficina
         private void button3_Click(object sender, EventArgs e)
         {
             string cpf = "";
-            if (Documentos.ValidarCPF(maskedTextBox3.Text))
+            if (ValidarCPF(maskedTextBox3.Text))
             {
                 cpf = maskedTextBox3.Text;
             }
@@ -448,7 +447,7 @@ namespace Oficina
             try
             {
                 string CNPJ = "";
-                if (Documentos.ValidarCnpj(maskedTextBox2.Text))
+                if (ValidarCNPJ(maskedTextBox2.Text))
                 {
                     CNPJ = maskedTextBox2.Text;
                 }
@@ -493,7 +492,7 @@ namespace Oficina
             try
             {
                 string cpf;
-                if (Documentos.ValidarCPF(maskedTextBox8.Text))
+                if (ValidarCPF(maskedTextBox8.Text))
                 {
                     cpf = maskedTextBox8.Text;
                 }
@@ -636,7 +635,7 @@ namespace Oficina
         private void button15_Click(object sender, EventArgs e)
         {
             string cpf = "";
-            if (Documentos.ValidarCPF(maskedTextBox10.Text))
+            if (ValidarCPF(maskedTextBox10.Text))
             {
                 cpf = maskedTextBox10.Text;
             }
@@ -691,7 +690,7 @@ namespace Oficina
         private void button16_Click(object sender, EventArgs e)
         {
             string cpf = "";
-            if (Documentos.ValidarCPF(maskedTextBox11.Text))
+            if (ValidarCPF(maskedTextBox11.Text))
             {
                 cpf = maskedTextBox11.Text;
             }
@@ -839,7 +838,7 @@ namespace Oficina
             try
             {
                 string CNPJ = "";
-                if (Documentos.ValidarCnpj(maskedTextBox13.Text))
+                if (ValidarCNPJ(maskedTextBox13.Text))
                 {
                     CNPJ = maskedTextBox13.Text;
                 }
@@ -1470,5 +1469,82 @@ namespace Oficina
             Relatorios relatorios = new Relatorios();
             relatorios.Show();
         }
+
+        public static bool ValidarCPF(string cpf)
+        {
+            if (string.IsNullOrWhiteSpace(cpf))
+                return false;
+
+            // Remove caracteres não numéricos
+            cpf = new string(cpf.Where(char.IsDigit).ToArray());
+
+            // Verifica tamanho
+            if (cpf.Length != 11)
+                return false;
+
+            // Elimina CPFs com todos os dígitos iguais (ex: 11111111111)
+            if (cpf.Distinct().Count() == 1)
+                return false;
+
+            // Calcula primeiro dígito verificador
+            int[] multiplicador1 = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int soma = 0;
+            for (int i = 0; i < multiplicador1.Length; i++)
+                soma += int.Parse(cpf[i].ToString()) * multiplicador1[i];
+
+            int resto = soma % 11;
+            int digito1 = resto < 2 ? 0 : 11 - resto;
+
+            // Calcula segundo dígito verificador
+            int[] multiplicador2 = { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            soma = 0;
+            for (int i = 0; i < multiplicador2.Length; i++)
+                soma += int.Parse(cpf[i].ToString()) * multiplicador2[i];
+
+            resto = soma % 11;
+            int digito2 = resto < 2 ? 0 : 11 - resto;
+
+            // Verifica se os dígitos calculados batem com os informados
+            return cpf.EndsWith($"{digito1}{digito2}");
+        }
+        public static bool ValidarCNPJ(string cnpj)
+        {
+            if (string.IsNullOrWhiteSpace(cnpj))
+                return false;
+
+            // Remove caracteres não numéricos
+            string apenasNumeros = new string(cnpj.Where(char.IsDigit).ToArray());
+
+            // CNPJ deve ter exatamente 14 dígitos
+            if (apenasNumeros.Length != 14)
+                return false;
+
+            // Elimina CNPJs com todos os dígitos iguais (ex: 00000000000000)
+            if (apenasNumeros.All(c => c == apenasNumeros[0]))
+                return false;
+
+            // Calcula primeiro dígito verificador
+            int[] multiplicadores1 = { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int soma1 = 0;
+            for (int i = 0; i < multiplicadores1.Length; i++)
+                soma1 += (apenasNumeros[i] - '0') * multiplicadores1[i];
+
+            int resto1 = soma1 % 11;
+            int digito1 = resto1 < 2 ? 0 : 11 - resto1;
+
+            // Calcula segundo dígito verificador
+            int[] multiplicadores2 = { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int soma2 = 0;
+            for (int i = 0; i < multiplicadores2.Length; i++)
+                soma2 += (apenasNumeros[i] - '0') * multiplicadores2[i];
+
+            int resto2 = soma2 % 11;
+            int digito2 = resto2 < 2 ? 0 : 11 - resto2;
+
+            // Verifica se os dígitos calculados batem com os informados
+            return apenasNumeros[12] - '0' == digito1 &&
+                   apenasNumeros[13] - '0' == digito2;
+        }
+
     }
 }
