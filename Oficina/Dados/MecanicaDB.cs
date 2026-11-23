@@ -4,6 +4,10 @@
 
     partial class MecanicaDB
     {
+        partial class RelatorioOSDataTable
+        {
+        }
+
         partial class HistoricoOSDataTable
         {
         }

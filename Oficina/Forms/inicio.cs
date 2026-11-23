@@ -1,10 +1,8 @@
 ﻿using Oficina.Forms;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using MeusMetodos;
 using System.Windows.Forms;
 using Oficina.Dados.MecanicaDBTableAdapters;
@@ -1459,6 +1457,18 @@ namespace Oficina
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button39_Click(object sender, EventArgs e)
+        {
+            Relatorios relatorios = new Relatorios();
+            relatorios.Show();
+        }
+
+        private void button42_Click(object sender, EventArgs e)
+        {
+            Relatorios relatorios = new Relatorios();
+            relatorios.Show();
         }
     }
 }
